@@ -358,7 +358,132 @@ footer {
   .form-row { grid-template-columns: 1fr; }
   .cta-strip { flex-direction: column; text-align: center; }
   footer { padding: 1.5rem; }
+
+  .digital-flow {
+    padding: 5rem 1.5rem;
+  }
+
+  .flow-header {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .flow {
+    grid-template-columns: 1fr;
+  }
+
+  .flow-line {
+    width: 1px;
+    height: 25px;
+    justify-self: center;
+  }
+
+  .flow-line::after {
+    content: "↓";
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: -8px;
+    transform: translateX(-50%);
+  }
 }
+
+.digital-flow {
+  padding: 7rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.flow-header {
+  max-width: 900px;
+  display: grid;
+  grid-templrate-columns: 1fr 0.8fr;
+  gap: 5rem;
+  align-items: end;
+  margin-bottom: 4rem;
+}
+
+.flow-header h2 {
+  font-family: var(--head);
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+
+.flow-header p {
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.flow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  align-items: stretch;
+  gap: 1rem;
+}
+
+.flow-card {
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transtition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.flow-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--border2);
+}
+
+.flow-icon {
+  font-family: var(--head);
+  font-size: 0.73rem;
+  color: var(--blue3);
+  nargin-bottom: 2.5rem
+}
+
+.flow-card h3 {
+  font-family: var(--head);
+  font-size: 1.2rem;
+  margin: 0 0 0.7rem;
+}
+
+.flow-card p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+}
+
+.flow-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  color: var(--blue3);
+  border: 1px solid var(--border2);
+  border-radius: 999px;
+  padding: 0.35rem 0.6rem;
+}
+
+.flow-line {
+  width: 30px;
+  align-self: center;
+  height: 1px;
+  background: var(--border2);
+  position: relative;
+}
+
+.flow-line::after {
+  content: "→";
+  position: absolute;
+  right: -3px;
+  top: 50%;
+  transform: translateY(-55%);
+  color: var(--blue2);
+  font-size: 0.9rem;
+}
+
 </style>
 </head>
 <body>
@@ -437,6 +562,62 @@ footer {
     </div>
   </div>
 </section>
+
+<! -- DIGITAL FLOW -- >
+<section class="digita-flow" id="flujo">
+  <div class="section-inner">
+    <div class="section-label">Cómo trabajo</div>
+
+    <div class="flow-header">
+      <div>
+        <h2>De una visita <br> a una <span> consulta.</span></h2>
+      </div>
+
+      <p>
+        Una buena presencia digital no termina en una pagina web.
+        La idea es conectar cada punto para que un potencial cliente
+        pueda encontrarte, contactarte y convertirse en una oportunidad.
+      </p>
+    </div>
+
+    <div class="flow">
+      <div class="flow-card">
+        <div class="flow-icon">01</div>
+        <h3>Te encuentran</h3>
+        <p>Google, Instagram, anuncios o recomendaciones llevan personas hacia tu negocio</p>
+        <div class="flot-tag">Google · Instagram </div>
+      </div>
+
+      <div class="flow-line"></div>
+
+      <div class="flow-card">
+        <div class="flow-icon">02</div>
+        <h3>Conocen tu negocio</h3>
+        <p>Una página clara muestra tus servicios, genera confianza y responde las preguntas importantes.</p>
+        <div class="flow-tag">Web · Landing</div>
+      </div>
+
+      <div class="flow-line"></div>
+
+      <div class="flow-card">
+        <div class="flow-icon">03</div>
+        <h3>Te contactan</h3>
+        <p>El visitante encuentra una acción clara para consultar, reservar o pedir información.</p>
+        <div class="flow-tag">WhatsApp · formulario</div>
+      </div>
+
+      <div class="flow-line"></div>
+
+      <div class="flow-card">
+        <div class="flow-icon">04</div>
+        <h3>El sistema ayuda</h3>
+        <p>Las consultas pueden registrasrse, clasificarse y conectarse con automatizaciones</p>
+        <div class="flow-tag"> API · Automatizaciones</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- EXPERIENCIA -->
 <section id="experiencia" class="exp-section">
