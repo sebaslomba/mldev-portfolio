@@ -354,6 +354,36 @@ h2 { font-family: var(--head); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weigh
 .svc-name { font-family: var(--head); font-weight: 800; font-size: 1.1rem; margin-bottom: .5rem; }
 .svc-desc { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 1.25rem; }
 .svc-price { font-size: 13px; color: var(--blue3); font-weight: 600; }
+.svc-features { list-style: none; display: flex; flex-direction: column; gap: 9px; margin: 0 0 1.5rem; padding: 0; }
+
+.svc-features li { font-size: 13px;  color: var(--muted); padding-left: 18px; position: relative; }
+
+.svc-features li::before {  content: "✓"; position: absolute; left: 0; color: var(--blue2); font-weight: 600; }
+
+.svc-bottom { margin-top: auto; margin-bottom: 1.25rem; }
+
+.svc-maintenance {  font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+.svc-btn {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 9px;
+  background: var(--glow);
+  border: 1px solid var(--border2);
+  color: var(--blue3);
+  text-align: center;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background .2s, color .2s, transform .15s;
+}
+
+.svc-btn:hover {
+  background: var(--blue);
+  color: #fff;
+  transform: translateY(-1px);
+}
 
 .cta-strip {
   background: linear-gradient(135deg, rgba(37,99,235,0.15), rgba(99,102,241,0.08));
