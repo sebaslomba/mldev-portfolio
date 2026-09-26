@@ -339,9 +339,16 @@ h2 { font-family: var(--head); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weigh
 .services-section { background: var(--bg2); }
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.25rem; margin-bottom: 2rem; }
 .svc {
-  background: var(--bg3); border: 1px solid var(--border);
-  border-radius: var(--r); padding: 2rem;
-  transition: border-color .2s, transform .2s; position: relative; overflow: hidden;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 2rem;
+  transition: border-color .2s, transform .2s;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
 }
 .svc.featured { border-color: rgba(37,99,235,0.4); }
 .svc.featured::after {
