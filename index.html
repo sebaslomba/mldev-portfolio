@@ -2035,72 +2035,200 @@ footer {
 </section>
 
 <!-- CONTACTO -->
-<section class="contact-section" id="contacto">
+<section id="contacto">
   <div class="inner">
+    <div class="contact-grid">
 
-    <div class="contact-card reveal">
+      <!-- INFO -->
+      <div class="contact-info reveal">
+        <p class="slabel">Contacto</p>
 
-      <div class="contact-content">
-        <p class="slabel">¿Tenés un proyecto?</p>
+        <h2>Hablemos de tu proyecto.</h2>
 
-        <h2>
-          Hablemos de lo que<br>
-          <span>podemos construir.</span>
-        </h2>
-
-        <p class="contact-description">
+        <p>
           Contame qué necesitás, qué problema querés resolver
-          o simplemente qué tenés en mente. A partir de ahí,
-          vemos cuál es la mejor forma de llevarlo a cabo.
+          o qué tenés en mente. Podemos encontrar juntos la mejor
+          forma de llevarlo a cabo.
         </p>
 
-        <div class="contact-actions">
+        <div class="clinks">
+
           <a
             href="https://wa.me/595972200208"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn-prim"
+            class="clink"
           >
-            Hablar por WhatsApp →
+            <div class="clink-ico">WA</div>
+
+            <div>
+              <div class="clink-t">WhatsApp</div>
+              <div class="clink-s">+595 972 200 208</div>
+            </div>
           </a>
 
           <a
             href="https://www.linkedin.com/in/mathias-lombardi-057081350/"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn-sec"
+            class="clink"
           >
-            LinkedIn
+            <div class="clink-ico">in</div>
+
+            <div>
+              <div class="clink-t">LinkedIn</div>
+              <div class="clink-s">Mathias Lombardi</div>
+            </div>
           </a>
+
         </div>
       </div>
 
-      <div class="contact-side">
+      <!-- FORMULARIO -->
+      <div class="contact-form-wrap reveal">
 
-        <div class="contact-item">
-          <span>01</span>
-          <div>
-            <strong>Web & sistemas</strong>
-            <p>Landing pages, sitios, sistemas y plataformas.</p>
-          </div>
+        <div class="form-title">
+          Contame qué necesitás
         </div>
 
-        <div class="contact-item">
-          <span>02</span>
-          <div>
-            <strong>Integraciones</strong>
-            <p>APIs, WhatsApp, formularios y herramientas conectadas.</p>
+        <div id="form-body">
+
+          <div class="form-row">
+
+            <div class="fg">
+              <label for="f-name">Nombre *</label>
+              <input
+                id="f-name"
+                type="text"
+                placeholder="Tu nombre"
+              >
+            </div>
+
+            <div class="fg">
+              <label for="f-empresa">Empresa</label>
+              <input
+                id="f-empresa"
+                type="text"
+                placeholder="Nombre de tu empresa"
+              >
+            </div>
+
           </div>
+
+          <div class="fg">
+            <label>¿Qué necesitás? *</label>
+
+            <div class="cs-wrap" id="cs-wrap">
+
+              <div
+                class="cs-display"
+                id="cs-display"
+                onclick="toggleCS()"
+              >
+                <span
+                  id="cs-text"
+                  class="cs-placeholder"
+                >
+                  Seleccioná un servicio
+                </span>
+
+                <span
+                  id="cs-arrow"
+                  class="cs-arrow"
+                >
+                  ⌄
+                </span>
+              </div>
+
+              <div class="cs-opts" id="cs-opts">
+
+                <div
+                  class="cs-opt"
+                  onclick="pickCS(this)"
+                >
+                  Web Básica
+                </div>
+
+                <div
+                  class="cs-opt"
+                  onclick="pickCS(this)"
+                >
+                  Web Estándar
+                </div>
+
+                <div
+                  class="cs-opt"
+                  onclick="pickCS(this)"
+                >
+                  Web Pro
+                </div>
+
+                <div
+                  class="cs-opt"
+                  onclick="pickCS(this)"
+                >
+                  Aplicación mobile
+                </div>
+
+                <div
+                  class="cs-opt"
+                  onclick="pickCS(this)"
+                >
+                  Automatización / API
+                </div>
+
+                <div
+                  class="cs-opt"
+                  onclick="pickCS(this)"
+                >
+                  Otro
+                </div>
+
+              </div>
+
+            </div>
+
+            <input
+              type="hidden"
+              id="f-servicio"
+              value=""
+            >
+          </div>
+
+          <div class="fg">
+            <label for="f-msg">Mensaje</label>
+
+            <textarea
+              id="f-msg"
+              placeholder="Contame brevemente sobre tu proyecto..."
+            ></textarea>
+          </div>
+
+          <button
+            id="f-btn"
+            class="form-submit"
+            type="button"
+            onclick="enviarForm()"
+          >
+            Enviar mensaje →
+          </button>
+
+          <div class="form-note">
+            Te respondo lo antes posible.
+          </div>
+
         </div>
 
-        <div class="contact-item">
-          <span>03</span>
-          <div>
-            <strong>Automatización</strong>
-            <p>Procesos repetitivos convertidos en workflows.</p>
-          </div>
+        <div
+          id="form-ok"
+          class="form-success"
+        >
+          Mensaje enviado correctamente.<br>
+          Gracias por contactarme.
         </div>
+
       </div>
+
     </div>
   </div>
 </section>
