@@ -532,8 +532,216 @@ footer {
     bottom: -8px;
     transform: translateX(-50%);
   }
+
+  .demo-header {
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  }
+
+  .demo-showcase {
+    min-height: auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    padding: 0 0 2rem;
+  }
+
+.laptop-screen {
+  width: min(570px, 88vw);
+  height: auto;
+  aspect-ratio: 570 / 350;
 }
 
+  .laptop-base {
+    width: calc(min(570px, 88vw) + 80px);
+    max-width: 100%;
+    margin-left: -40px;
+  }
+
+  .pc-monitor {
+    width: min(430px, 78vw);
+    height: auto;
+    aspect-ratio: 430 / 300;
+  }
+
+  .device-laptop:hover,
+  .device-pc:hover {
+   transform: none;
+  }
+}
+
+
+/* ─── COMMERCIAL DEMO ─── */
+
+.demo-section {
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.demo-header {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: 5rem;
+  align-items: end;
+  margin-bottom: 5rem;
+}
+
+.demo-header h2 {
+  font-family: var(--head);
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  line-height: .95;
+  letter-spacing: -.04em;
+  margin: 0;
+}
+
+.demo-header h2 span {
+  color: var(--blue3);
+}
+
+.demo-header .sdesc {
+  margin: 0;
+}
+
+.demo-showcase {
+  min-height: 560px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 5rem;
+  position: relative;
+  padding: 0 2rem 3rem;
+}
+
+/* ─── DEVICES ─── */
+
+.device {
+  position: relative;
+}
+
+.laptop-screen {
+  width: 570px;
+  height: 350px;
+  padding: 11px;
+  background: #171b22;
+  border: 1px solid #303641;
+  border-radius: 14px 14px 7px 7px;
+  box-shadow: 0 25px 60px rgba(0,0,0,.35);
+}
+
+.laptop-screen::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #353b45;
+  transform: translateX(-50%);
+}
+
+.laptop-screen .screen-content {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 7px;
+  background: #0d1117;
+}
+
+.laptop-base {
+  width: 650px;
+  height: 18px;
+  margin-left: -40px;
+  background: linear-gradient(to bottom, #363c45, #1c2128);
+  border-radius: 2px 2px 12px 12px;
+  position: relative;
+  box-shadow: 0 8px 15px rgba(0,0,0,.25);
+}
+
+.laptop-base::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 4px;
+  width: 90px;
+  height: 3px;
+  border-radius: 10px;
+  background: #11151b;
+  transform: translateX(-50%);
+}
+
+/* ─── PC ─── */
+
+.device-pc {
+  margin-bottom: 22px;
+}
+
+.pc-monitor {
+  width: 430px;
+  height: 300px;
+  padding: 10px;
+  background: #171b22;
+  border: 1px solid #303641;
+  border-radius: 10px;
+  box-shadow: 0 25px 60px rgba(0,0,0,.35);
+}
+
+.pc-monitor .screen-content {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+  background: #0d1117;
+}
+
+.pc-stand {
+  width: 70px;
+  height: 55px;
+  margin: 0 auto;
+  background: linear-gradient(to right, #252b33, #353b45, #252b33);
+}
+
+.pc-base {
+  width: 150px;
+  height: 8px;
+  margin: 0 auto;
+  border-radius: 8px 8px 3px 3px;
+  background: #303640;
+}
+
+/* ─── SCREEN PLACEHOLDER ─── */
+
+.demo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 70% 25%, rgba(59,130,246,.12), transparent 30%),
+    linear-gradient(135deg, #111823, #0d1117);
+}
+
+.demo-placeholder span {
+  font-family: var(--head);
+  font-size: 11px;
+  letter-spacing: .16em;
+  color: rgba(147,197,253,.45);
+}
+
+/* ─── HOVER ─── */
+
+.device {
+  transition: transform .4s ease;
+}
+
+.device-laptop:hover {
+  transform: translateY(-8px) rotate(-1deg);
+}
+
+.device-pc:hover {
+  transform: translateY(-8px) rotate(1deg);
+}
 </style>
 </head>
 <body>
@@ -887,6 +1095,62 @@ footer {
       </div>
       <a href="#contacto" class="btn-prim">Quiero mi demo →</a>
     </div>
+  </div>
+</section>
+
+<!-- DEMO COMERCIAL -->
+<section class="demo-section" id="demo">
+  <div class="inner">
+
+    <div class="demo-header reveal">
+      <div>
+        <p class="slabel">Demo comercial</p>
+        <h2>No te cuento cómo se ve.<br><span>Te lo muestro.</span></h2>
+      </div>
+
+      <p class="sdesc">
+        Dos ejemplos de cómo puede verse un proyecto real,
+        adaptado al dispositivo y al tipo de negocio.
+      </p>
+    </div>
+
+    <div class="demo-showcase">
+
+      <!-- NOTEBOOK -->
+      <div class="device device-laptop reveal">
+
+        <div class="laptop-screen">
+          <div class="screen-content">
+            <div class="demo-placeholder">
+              <span>WEB DEMO</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="laptop-base">
+          <div class="laptop-notch"></div>
+        </div>
+
+      </div>
+
+      <!-- PC -->
+      <div class="device device-pc reveal">
+
+        <div class="pc-monitor">
+          <div class="screen-content">
+            <div class="demo-placeholder">
+              <span>WEB DEMO</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pc-stand"></div>
+        <div class="pc-base"></div>
+
+      </div>
+
+    </div>
+
   </div>
 </section>
 
