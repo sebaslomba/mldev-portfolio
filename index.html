@@ -546,11 +546,11 @@ footer {
     padding: 0 0 2rem;
   }
 
-.laptop-screen {
-  width: min(570px, 88vw);
-  height: auto;
-  aspect-ratio: 570 / 350;
-}
+  .laptop-screen {
+    width: min(570px, 88vw);
+    height: auto;
+    aspect-ratio: 570 / 350;
+  }
 
   .laptop-base {
     width: calc(min(570px, 88vw) + 80px);
@@ -569,28 +569,49 @@ footer {
    transform: none;
   }
 
-  .automation-header {
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-}
+    .automation-header {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 
-.automation-flow {
-  grid-template-columns: 1fr;
-}
+  .automation-flow {
+    grid-template-columns: 1fr;
+  }
 
-.automation-arrow {
-  transform: rotate(90deg);
-  justify-self: center;
-}
+  .automation-arrow {
+    transform: rotate(90deg);
+    justify-self: center;
+  }
 
-.automation-grid {
-  grid-template-columns: 1fr;
-}
+  .automation-grid {
+    grid-template-columns: 1fr;
+  }
 
-.automation-cta {
-  flex-direction: column;
-  align-items: flex-start;
-}
+  .automation-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .experience-header {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .experience-main {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-proof {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .experience-proof div:nth-child(2) {
+    border-right: 0;
+  }
+
+  .experience-proof div:nth-child(-n+2) {
+    border-bottom: 1px solid var(--border);
+  }
 }
 
 
@@ -946,6 +967,184 @@ footer {
   font-family: var(--head);
   font-size: 1.2rem;
   margin: 0;
+}
+
+/* ─── EXPERIENCE ─── */
+
+.experience-section {
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.experience-header {
+  display: grid;
+  grid-template-columns: 1fr .8fr;
+  gap: 5rem;
+  align-items: end;
+  margin-bottom: 4rem;
+}
+
+.experience-header h2 {
+  font-family: var(--head);
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  line-height: .95;
+  letter-spacing: -.04em;
+  margin: 0;
+}
+
+.experience-header h2 span {
+  color: var(--blue3);
+}
+
+.experience-header .sdesc {
+  margin: 0;
+}
+
+/* MAIN */
+
+.experience-main {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+
+.experience-company {
+  padding: 2.5rem;
+  background: var(--bg3);
+}
+
+.experience-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.experience-label {
+  display: block;
+  color: var(--blue3);
+  font-size: .68rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  margin-bottom: .7rem;
+}
+
+.experience-company h3 {
+  font-family: var(--head);
+  font-size: 2rem;
+  margin: 0;
+  letter-spacing: -.03em;
+}
+
+.experience-date {
+  color: var(--muted);
+  font-size: .7rem;
+  white-space: nowrap;
+  padding-top: .2rem;
+}
+
+.experience-role {
+  font-family: var(--head);
+  font-size: 1rem;
+  margin: 0 0 1rem;
+}
+
+.experience-description {
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.7;
+  max-width: 560px;
+  margin: 0 0 2rem;
+}
+
+.experience-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.experience-tags span {
+  color: var(--blue3);
+  font-size: .68rem;
+  border: 1px solid var(--border2);
+  border-radius: 999px;
+  padding: .35rem .6rem;
+}
+
+/* SIDE */
+
+.experience-side {
+  background: var(--bg2);
+}
+
+.experience-item {
+  display: grid;
+  grid-template-columns: 35px 1fr;
+  gap: 1rem;
+  padding: 1.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.experience-item:last-child {
+  border-bottom: 0;
+}
+
+.experience-number {
+  color: var(--blue3);
+  font-family: var(--head);
+  font-size: .68rem;
+  padding-top: .15rem;
+}
+
+.experience-item h3 {
+  font-family: var(--head);
+  font-size: .95rem;
+  margin: 0 0 .5rem;
+}
+
+.experience-item p {
+  color: var(--muted);
+  font-size: .8rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* PROOF */
+
+.experience-proof {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+
+.experience-proof div {
+  padding: 1.5rem;
+  background: var(--bg3);
+  border-right: 1px solid var(--border);
+}
+
+.experience-proof div:last-child {
+  border-right: 0;
+}
+
+.experience-proof strong {
+  display: block;
+  font-family: var(--head);
+  font-size: 1.15rem;
+  margin-bottom: .3rem;
+}
+
+.experience-proof span {
+  color: var(--muted);
+  font-size: .7rem;
 }
 </style>
 </head>
