@@ -1981,56 +1981,69 @@ footer {
 </section>
 
 <!-- CONTACTO -->
-<section id="contacto">
+<section class="contact-section" id="contacto">
   <div class="inner">
-    <div class="contact-grid">
-      <div class="contact-info reveal">
-        <p class="slabel">Contacto</p>
-        <h2>Hablemos</h2>
-        <p>Para proyectos mobile, páginas web o cualquier consulta. Respondo en menos de 24hs.</p>
-        <div class="clinks">
-          <a href="https://wa.me/595972200208" target="_blank" class="clink">
-            <div class="clink-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#93C5FD" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-            <div><div class="clink-t">WhatsApp</div><div class="clink-s">+595 972 200 208</div></div>
+
+    <div class="contact-card reveal">
+
+      <div class="contact-content">
+        <p class="slabel">¿Tenés un proyecto?</p>
+
+        <h2>
+          Hablemos de lo que<br>
+          <span>podemos construir.</span>
+        </h2>
+
+        <p class="contact-description">
+          Contame qué necesitás, qué problema querés resolver
+          o simplemente qué tenés en mente. A partir de ahí,
+          vemos cuál es la mejor forma de llevarlo a cabo.
+        </p>
+
+        <div class="contact-actions">
+          <a
+            href="https://wa.me/595972200208"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-prim"
+          >
+            Hablar por WhatsApp →
           </a>
-          <a href="https://www.linkedin.com/in/mathias-lombardi-057081350" target="_blank" class="clink">
-            <div class="clink-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#93C5FD" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
-            <div><div class="clink-t">LinkedIn</div><div class="clink-s">Mathias Lombardi</div></div>
+
+          <a
+            href="https://www.linkedin.com/in/mathias-lombardi-057081350/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-sec"
+          >
+            LinkedIn
           </a>
         </div>
       </div>
 
-      <div class="reveal">
-        <div class="contact-form-wrap">
-          <div class="form-title">Enviame un mensaje</div>
-          <div id="form-body">
-            <div class="form-row">
-              <div class="fg"><label>Nombre *</label><input type="text" id="f-name" placeholder="Tu nombre" required></div>
-              <div class="fg"><label>Empresa / Negocio</label><input type="text" id="f-empresa" placeholder="Nombre del local o empresa"></div>
-            </div>
-            <div class="fg"><label>Tipo de servicio *</label>
-              <div class="cs-wrap" id="cs-wrap">
-                <div class="cs-display" id="cs-display" onclick="toggleCS()">
-                  <span id="cs-text" class="cs-placeholder">Seleccioná una opción</span>
-                  <svg class="cs-arrow" id="cs-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 5l5 5 5-5" stroke="#64748B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </div>
-                <div class="cs-opts" id="cs-opts">
-                  <div class="cs-opt" onclick="pickCS(this)">Página web — Paquete Básico</div>
-                  <div class="cs-opt" onclick="pickCS(this)">Página web — Paquete Estándar</div>
-                  <div class="cs-opt" onclick="pickCS(this)">Página web — Paquete Pro</div>
-                  <div class="cs-opt" onclick="pickCS(this)">Desarrollo mobile (iOS / Android)</div>
-                  <div class="cs-opt" onclick="pickCS(this)">Consultoría / otro</div>
-                </div>
-              </div>
-              <input type="hidden" id="f-servicio">
-            </div>
-            <div class="fg"><label>Mensaje</label><textarea id="f-msg" placeholder="Contame sobre tu proyecto o lo que necesitás..."></textarea></div>
-            <button class="form-submit" id="f-btn" onclick="enviarForm()">Enviar mensaje →</button>
-            <p class="form-note">Te respondo en menos de 24hs por WhatsApp o email.</p>
+      <div class="contact-side">
+
+        <div class="contact-item">
+          <span>01</span>
+          <div>
+            <strong>Web & sistemas</strong>
+            <p>Landing pages, sitios, sistemas y plataformas.</p>
           </div>
-          <div class="form-success" id="form-ok">
-            ✅ ¡Mensaje recibido!<br>
-            <span style="font-size:13px;color:var(--muted);margin-top:8px;display:block">Te contacto pronto por WhatsApp.</span>
+        </div>
+
+        <div class="contact-item">
+          <span>02</span>
+          <div>
+            <strong>Integraciones</strong>
+            <p>APIs, WhatsApp, formularios y herramientas conectadas.</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <span>03</span>
+          <div>
+            <strong>Automatización</strong>
+            <p>Procesos repetitivos convertidos en workflows.</p>
           </div>
         </div>
       </div>
