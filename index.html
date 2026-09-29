@@ -573,49 +573,61 @@ footer {
    transform: none;
   }
 
-    .automation-header {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
+    @media(max-width:700px) {
 
-  .automation-flow-new {
-    grid-template-columns: 1fr;
-    gap: .6rem;
-  }
+      .automation-header {
+        grid-template-columns:1fr;
+        gap:1.25rem;
+        margin-bottom:1.5rem;
+      }
 
-  .automation-connector {
-    transform: rotate(90deg);
-    justify-self: center;
-  }
+      .automation-timeline {
+        overflow-x:auto;
+      }
 
-  .automation-cases {
-    grid-template-columns: 1fr;
-  }
+      .automation-timeline-item {
+        min-width:120px;
+      }
 
-  .automation-case-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    border-right: 0;
-    border-bottom: 1px solid var(--border);
-  }
+      .automation-showcase-body {
+        grid-template-columns:1fr;
+      }
 
-  .automation-case {
-    border-right: 1px solid var(--border);
-  }
+      .automation-process {
+        flex-direction:row;
+        align-items:center;
+        justify-content:center;
+        gap:.6rem;
+        padding:1rem;
+        border-right:0;
+        border-bottom:1px solid var(--border);
+      }
 
-  .automation-case:nth-child(2n) {
-    border-right: 0;
-  }
+      .process-line {
+        width:25px;
+        height:1px;
+        margin:0;
+      }
 
-  .automation-case-content {
-    padding: 1.5rem;
-  }
+      .process-step {
+        gap:.45rem;
+      }
 
-  .automation-cta {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+      .process-step strong {
+        font-size:.7rem;
+      }
 
+      .automation-case-content {
+        padding:1.5rem;
+      }
+
+      .automation-cta {
+        flex-direction:column;
+        align-items:flex-start;
+        gap:1rem;
+      }
+
+    }
   .experience-header {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -833,222 +845,229 @@ footer {
     transform: translateY(-8px) rotate(1deg);
   }
 
- /* AUTOMATIONS */
+/* Automatizaciones */
 .automation-section {
-  background: var(--bg2);
-  overflow: hidden;
+  background:var(--bg2);
+  overflow:hidden;
 }
 
 .automation-header {
-  display: grid;
-  grid-template-columns: 1fr 0.8fr;
-  gap: 5rem;
-  align-items: end;
-  margin-bottom: 3rem;
+  display:grid;
+  grid-template-columns:1fr .8fr;
+  gap:4rem;
+  align-items:end;
+  margin-bottom:2rem;
 }
 
 .automation-header h2 {
-  font-family: var(--head);
-  font-size: clamp(2.5rem, 5vw, 4.2rem);
-  line-height: .95;
-  letter-spacing: -.04em;
-  margin: 0;
-}
-
-.automation-header h2 span {
-  color: var(--blue3);
+  font-family:var(--head);
+  font-size:clamp(2.5rem,5vw,4rem);
+  line-height:.95;
+  letter-spacing:-.04em;
+  margin:0;
 }
 
 .automation-header .sdesc {
-  margin: 0;
+  margin:0;
 }
 
-/* PROCESO */
-.automation-system {
-  border: 1px solid var(--border);
-  border-radius: var(--r);
-  overflow: hidden;
-  background: var(--bg3);
+
+/* Selector de casos */
+
+.automation-showcase {
+  background:var(--bg3);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  overflow:hidden;
 }
 
-.automation-flow-new {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr auto 1fr;
-  align-items: stretch;
-  gap: 1rem;
-  padding: 1.25rem;
-  border-bottom: 1px solid var(--border);
+.automation-timeline {
+  display:flex;
+  border-bottom:1px solid var(--border);
+  overflow-x:auto;
+  scrollbar-width:none;
 }
 
-.automation-node {
-  padding: 1.25rem;
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 12px;
+.automation-timeline::-webkit-scrollbar {
+  display:none;
 }
 
-.automation-node-main {
-  border-color: var(--border2);
-  background: linear-gradient(145deg, rgba(37,99,235,.08), var(--bg2));
+.automation-timeline-item {
+  appearance:none;
+  border:0;
+  border-right:1px solid var(--border);
+  background:transparent;
+  color:var(--muted);
+  padding:.9rem 1rem;
+  min-width:130px;
+  font-family:var(--body);
+  text-align:left;
+  cursor:pointer;
+  transition:background .2s,color .2s;
 }
 
-.automation-node span {
-  display: block;
-  color: var(--blue3);
-  font-family: var(--head);
-  font-size: .68rem;
-  margin-bottom: .9rem;
+.automation-timeline-item:last-child {
+  border-right:0;
 }
 
-.automation-node strong {
-  display: block;
-  font-family: var(--head);
-  font-size: 1rem;
-  margin-bottom: .4rem;
+.automation-timeline-item span {
+  display:block;
+  color:var(--blue3);
+  font-family:var(--head);
+  font-size:.62rem;
+  margin-bottom:.25rem;
 }
 
-.automation-node p {
-  color: var(--muted);
-  font-size: .78rem;
-  line-height: 1.5;
-  margin: 0;
+.automation-timeline-item strong {
+  font-size:.75rem;
+  font-weight:500;
 }
 
-.automation-connector {
-  align-self: center;
-  color: var(--blue2);
-  font-size: 1rem;
+.automation-timeline-item:hover,
+.automation-timeline-item.active {
+  background:var(--glow);
+  color:var(--text);
 }
 
-/* CASOS */
-.automation-cases {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  min-height: 250px;
+
+/* Proceso + explicación */
+
+.automation-showcase-body {
+  display:grid;
+  grid-template-columns:250px 1fr;
+  min-height:215px;
 }
 
-.automation-case-list {
-  display: flex;
-  flex-direction: column;
-  border-right: 1px solid var(--border);
+.automation-process {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:1.5rem;
+  border-right:1px solid var(--border);
 }
 
-.automation-case {
-  appearance: none;
-  border: 0;
-  border-bottom: 1px solid var(--border);
-  background: transparent;
-  color: var(--muted);
-  padding: .8rem 1rem;
-  text-align: left;
-  font-family: var(--body);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: .8rem;
-  transition: background .2s, color .2s;
+.process-step {
+  display:flex;
+  align-items:center;
+  gap:.8rem;
 }
 
-.automation-case:last-child {
-  border-bottom: 0;
+.process-step span {
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  border:1px solid var(--border2);
+  background:var(--glow);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--blue3);
+  font-family:var(--head);
+  font-size:.62rem;
+  flex-shrink:0;
 }
 
-.automation-case span {
-  font-family: var(--head);
-  font-size: .65rem;
-  color: var(--blue3);
+.process-step strong {
+  font-family:var(--head);
+  font-size:.8rem;
 }
 
-.automation-case strong {
-  font-size: .78rem;
-  font-weight: 500;
+.process-step-active span {
+  background:var(--blue);
+  border-color:var(--blue);
+  color:#fff;
 }
 
-.automation-case:hover,
-.automation-case.active {
-  color: var(--text);
-  background: var(--glow);
+.process-line {
+  width:1px;
+  height:22px;
+  background:var(--border2);
+  margin-left:15px;
 }
+
+
+/* Contenido */
 
 .automation-case-content {
-  position: relative;
-  padding: 2rem 2.25rem;
+  padding:1.75rem 2rem;
 }
 
 .automation-case-panel {
-  display: none;
+  display:none;
 }
 
 .automation-case-panel.active {
-  display: block;
+  display:block;
 }
 
 .automation-case-number {
-  display: block;
-  color: var(--blue3);
-  font-family: var(--head);
-  font-size: .65rem;
-  letter-spacing: .08em;
-  margin-bottom: 1rem;
+  display:block;
+  color:var(--blue3);
+  font-family:var(--head);
+  font-size:.62rem;
+  letter-spacing:.08em;
+  margin-bottom:.65rem;
 }
 
 .automation-case-panel h3 {
-  font-family: var(--head);
-  font-size: clamp(1.3rem, 2vw, 1.8rem);
-  line-height: 1.1;
-  max-width: 580px;
-  margin: 0 0 .8rem;
+  font-family:var(--head);
+  font-size:clamp(1.25rem,2vw,1.65rem);
+  line-height:1.1;
+  max-width:600px;
+  margin:0 0 .6rem;
 }
 
 .automation-case-panel p {
-  color: var(--muted);
-  font-size: .85rem;
-  line-height: 1.65;
-  max-width: 620px;
-  margin: 0 0 1.25rem;
+  color:var(--muted);
+  font-size:.82rem;
+  line-height:1.55;
+  max-width:650px;
+  margin:0 0 1rem;
 }
 
 .automation-benefits {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .5rem;
+  display:flex;
+  flex-wrap:wrap;
+  gap:.45rem;
 }
 
 .automation-benefits span {
-  color: var(--blue3);
-  font-size: .68rem;
-  border: 1px solid var(--border2);
-  border-radius: 999px;
-  padding: .35rem .6rem;
+  color:var(--blue3);
+  font-size:.65rem;
+  border:1px solid var(--border2);
+  border-radius:999px;
+  padding:.3rem .55rem;
 }
 
+
 /* CTA */
+
 .automation-cta {
-  margin-top: 1.25rem;
-  padding: 1.25rem 1.5rem;
-  border: 1px solid rgba(37,99,235,.25);
-  border-radius: var(--r);
-  background: linear-gradient(
+  margin-top:1rem;
+  padding:1rem 1.5rem;
+  border:1px solid rgba(37,99,235,.25);
+  border-radius:var(--r);
+  background:linear-gradient(
     135deg,
     rgba(37,99,235,.12),
     rgba(99,102,241,.05)
   );
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 2rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:2rem;
 }
 
 .automation-cta-label {
-  color: var(--blue3);
-  font-size: .68rem;
-  margin: 0 0 .35rem;
+  color:var(--blue3);
+  font-size:.65rem;
+  margin:0 0 .25rem;
 }
 
 .automation-cta h3 {
-  font-family: var(--head);
-  font-size: 1.1rem;
-  margin: 0;
+  font-family:var(--head);
+  font-size:1rem;
+  margin:0;
 }
 
   /* ─── EXPERIENCE ─── */
@@ -1788,7 +1807,7 @@ footer {
     <div class="automation-header reveal">
       <div>
         <p class="slabel">Automatización</p>
-        <h2>Menos tareas repetitivas.<br><span>Más tiempo para tu negocio.</span></h2>
+        <h2>Automatizá tu negocio.</h2>
       </div>
 
       <p class="sdesc">
@@ -1797,76 +1816,73 @@ footer {
       </p>
     </div>
 
-    <div class="automation-system">
+    <div class="automation-showcase reveal">
 
-      <!-- FLUJO -->
-      <div class="automation-flow-new reveal">
-
-        <div class="automation-node">
+      <div class="automation-timeline">
+        <button class="automation-timeline-item active"
+                onclick="showAutomationCase('consultas', this)">
           <span>01</span>
-          <strong>Tu cliente</strong>
-          <p>Hace una consulta, reserva o completa un formulario.</p>
-        </div>
+          <strong>Consultas</strong>
+        </button>
 
-        <div class="automation-connector">→</div>
-
-        <div class="automation-node automation-node-main">
+        <button class="automation-timeline-item"
+                onclick="showAutomationCase('reservas', this)">
           <span>02</span>
-          <strong>El sistema</strong>
-          <p>Procesa la información y realiza las tareas necesarias.</p>
-        </div>
+          <strong>Reservas</strong>
+        </button>
 
-        <div class="automation-connector">→</div>
-
-        <div class="automation-node">
+        <button class="automation-timeline-item"
+                onclick="showAutomationCase('clientes', this)">
           <span>03</span>
-          <strong>Todo conectado</strong>
-          <p>La información llega al lugar correcto automáticamente.</p>
-        </div>
+          <strong>Clientes</strong>
+        </button>
 
+        <button class="automation-timeline-item"
+                onclick="showAutomationCase('avisos', this)">
+          <span>04</span>
+          <strong>Avisos</strong>
+        </button>
+
+        <button class="automation-timeline-item"
+                onclick="showAutomationCase('informacion', this)">
+          <span>05</span>
+          <strong>Información</strong>
+        </button>
+
+        <button class="automation-timeline-item"
+                onclick="showAutomationCase('tareas', this)">
+          <span>06</span>
+          <strong>Tareas repetitivas</strong>
+        </button>
       </div>
 
-      <!-- CASOS -->
-      <div class="automation-cases reveal">
+      <div class="automation-showcase-body">
 
-        <div class="automation-case-list">
-
-          <button class="automation-case active" onclick="showAutomationCase('consultas', this)">
+        <div class="automation-process">
+          <div class="process-step">
             <span>01</span>
-            <strong>Consultas</strong>
-          </button>
+            <strong>Cliente</strong>
+          </div>
 
-          <button class="automation-case" onclick="showAutomationCase('reservas', this)">
+          <div class="process-line"></div>
+
+          <div class="process-step process-step-active">
             <span>02</span>
-            <strong>Reservas</strong>
-          </button>
+            <strong>Sistema</strong>
+          </div>
 
-          <button class="automation-case" onclick="showAutomationCase('clientes', this)">
+          <div class="process-line"></div>
+
+          <div class="process-step">
             <span>03</span>
-            <strong>Clientes</strong>
-          </button>
-
-          <button class="automation-case" onclick="showAutomationCase('avisos', this)">
-            <span>04</span>
-            <strong>Avisos</strong>
-          </button>
-
-          <button class="automation-case" onclick="showAutomationCase('informacion', this)">
-            <span>05</span>
-            <strong>Información</strong>
-          </button>
-
-          <button class="automation-case" onclick="showAutomationCase('tareas', this)">
-            <span>06</span>
-            <strong>Tareas repetitivas</strong>
-          </button>
-
+            <strong>Resultado</strong>
+          </div>
         </div>
 
         <div class="automation-case-content">
 
           <div class="automation-case-panel active" id="case-consultas">
-            <span class="automation-case-number">01 / CONSULTAS</span>
+            <span class="automation-case-number">CONSULTAS</span>
             <h3>Respondé más rápido sin estar pendiente todo el tiempo.</h3>
             <p>
               Cuando alguien consulta, el sistema puede responder preguntas
@@ -1882,84 +1898,83 @@ footer {
           </div>
 
           <div class="automation-case-panel" id="case-reservas">
-            <span class="automation-case-number">02 / RESERVAS</span>
-            <h3>Reservas organizadas sin coordinar todo manualmente.</h3>
+            <span class="automation-case-number">RESERVAS</span>
+            <h3>Dejá que las reservas se organicen solas.</h3>
             <p>
-              El cliente puede elegir un horario, registrar sus datos y recibir
-              una confirmación automáticamente.
+              Tus clientes pueden consultar disponibilidad y reservar,
+              mientras la información queda registrada y organizada
+              automáticamente.
             </p>
 
             <div class="automation-benefits">
-              <span>✓ Registro automático</span>
-              <span>✓ Confirmaciones</span>
+              <span>✓ Reservas automáticas</span>
+              <span>✓ Disponibilidad actualizada</span>
               <span>✓ Menos coordinación manual</span>
             </div>
           </div>
 
           <div class="automation-case-panel" id="case-clientes">
-            <span class="automation-case-number">03 / CLIENTES</span>
-            <h3>Cada nuevo contacto queda organizado.</h3>
+            <span class="automation-case-number">CLIENTES</span>
+            <h3>Convertí cada contacto en información útil.</h3>
             <p>
-              La información de las personas que consultan puede guardarse
-              automáticamente para que puedas hacer seguimiento.
+              Cada nuevo cliente puede quedar registrado automáticamente
+              para que tengas su información disponible cuando la necesites.
             </p>
 
             <div class="automation-benefits">
               <span>✓ Datos organizados</span>
-              <span>✓ Seguimiento</span>
-              <span>✓ Historial de contactos</span>
+              <span>✓ Nuevos contactos registrados</span>
+              <span>✓ Seguimiento más simple</span>
             </div>
           </div>
 
           <div class="automation-case-panel" id="case-avisos">
-            <span class="automation-case-number">04 / AVISOS</span>
-            <h3>Recibí un aviso cuando algo importante sucede.</h3>
+            <span class="automation-case-number">AVISOS</span>
+            <h3>Que cada persona reciba el aviso correcto.</h3>
             <p>
-              El sistema puede enviar emails, mensajes o notificaciones cuando
-              ocurre una acción que requiere tu atención.
+              Recordatorios, confirmaciones y notificaciones pueden enviarse
+              automáticamente cuando ocurre algo importante.
             </p>
 
             <div class="automation-benefits">
-              <span>✓ Emails</span>
-              <span>✓ Notificaciones</span>
-              <span>✓ Avisos automáticos</span>
+              <span>✓ Recordatorios</span>
+              <span>✓ Confirmaciones</span>
+              <span>✓ Notificaciones automáticas</span>
             </div>
           </div>
 
           <div class="automation-case-panel" id="case-informacion">
-            <span class="automation-case-number">05 / INFORMACIÓN</span>
-            <h3>La información llega donde la necesitás.</h3>
+            <span class="automation-case-number">INFORMACIÓN</span>
+            <h3>La información llega donde tiene que llegar.</h3>
             <p>
-              Conecto las herramientas que utilizás para evitar copiar datos
-              manualmente entre diferentes lugares.
+              Conecto tus herramientas para evitar copiar y pegar datos entre
+              distintos lugares y mantener la información sincronizada.
             </p>
 
             <div class="automation-benefits">
               <span>✓ Información sincronizada</span>
               <span>✓ Menos trabajo manual</span>
-              <span>✓ Herramientas conectadas</span>
+              <span>✓ Todo más organizado</span>
             </div>
           </div>
 
           <div class="automation-case-panel" id="case-tareas">
-            <span class="automation-case-number">06 / TAREAS REPETITIVAS</span>
-            <h3>Si lo hacés muchas veces, probablemente se pueda automatizar.</h3>
+            <span class="automation-case-number">TAREAS REPETITIVAS</span>
+            <h3>Automatizá aquello que hacés una y otra vez.</h3>
             <p>
-              Analizamos procesos repetitivos de tu negocio y buscamos qué
-              partes pueden ejecutarse automáticamente.
+              Identificamos tareas repetitivas de tu negocio y las convertimos
+              en procesos automáticos para ahorrar tiempo todos los días.
             </p>
 
             <div class="automation-benefits">
-              <span>✓ Procesos automáticos</span>
-              <span>✓ Menos errores</span>
-              <span>✓ Más tiempo para tu negocio</span>
+              <span>✓ Menos tareas manuales</span>
+              <span>✓ Más tiempo</span>
+              <span>✓ Procesos más simples</span>
             </div>
           </div>
 
         </div>
-
       </div>
-
     </div>
 
     <div class="automation-cta reveal">
@@ -2457,13 +2472,13 @@ async function enviarForm() {
 
 
 function showAutomationCase(name, button) {
-  document.querySelectorAll('.automation-case').forEach(item => {
-    item.classList.remove('active');
-  });
+  document
+    .querySelectorAll('.automation-timeline-item')
+    .forEach(item => item.classList.remove('active'));
 
-  document.querySelectorAll('.automation-case-panel').forEach(panel => {
-    panel.classList.remove('active');
-  });
+  document
+    .querySelectorAll('.automation-case-panel')
+    .forEach(panel => panel.classList.remove('active'));
 
   button.classList.add('active');
 
