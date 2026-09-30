@@ -573,61 +573,76 @@ footer {
    transform: none;
   }
 
-    @media(max-width:700px) {
+      @media(max-width:700px) {
 
-      .automation-header {
-        grid-template-columns:1fr;
-        gap:1.25rem;
-        margin-bottom:1.5rem;
-      }
-
-      .automation-timeline {
-        overflow-x:auto;
-      }
-
-      .automation-timeline-item {
-        min-width:120px;
-      }
-
-      .automation-showcase-body {
-        grid-template-columns:1fr;
-      }
-
-      .automation-process {
-        flex-direction:row;
-        align-items:center;
-        justify-content:center;
-        gap:.6rem;
-        padding:1rem;
-        border-right:0;
-        border-bottom:1px solid var(--border);
-      }
-
-      .process-line {
-        width:25px;
-        height:1px;
-        margin:0;
-      }
-
-      .process-step {
-        gap:.45rem;
-      }
-
-      .process-step strong {
-        font-size:.7rem;
-      }
-
-      .automation-case-content {
-        padding:1.5rem;
-      }
-
-      .automation-cta {
-        flex-direction:column;
-        align-items:flex-start;
-        gap:1rem;
-      }
-
+    .automation-header {
+      grid-template-columns:1fr;
+      gap:1.5rem;
+      margin-bottom:2rem;
     }
+
+    .automation-header h2 {
+      font-size:2.8rem;
+    }
+
+    .automation-timeline {
+      overflow-x:auto;
+    }
+
+    .automation-timeline-item {
+      min-width:125px;
+      padding:.9rem 1rem;
+    }
+
+    .automation-showcase-body {
+      grid-template-columns:1fr;
+      min-height:0;
+    }
+
+    .automation-process {
+      flex-direction:row;
+      align-items:center;
+      justify-content:center;
+      gap:.7rem;
+      padding:1.5rem 1rem;
+      border-right:0;
+      border-bottom:1px solid var(--border);
+    }
+
+    .process-step {
+      gap:.5rem;
+    }
+
+    .process-step span {
+      width:32px;
+      height:32px;
+    }
+
+    .process-step strong {
+      font-size:.7rem;
+    }
+
+    .process-line {
+      width:25px;
+      height:1px;
+      margin:0;
+    }
+
+    .automation-case-content {
+      padding:2rem 1.5rem;
+    }
+
+    .automation-case-panel h3 {
+      font-size:1.5rem;
+    }
+
+    .automation-cta {
+      flex-direction:column;
+      align-items:flex-start;
+      gap:1rem;
+    }
+
+  }
   .experience-header {
     grid-template-columns: 1fr;
     gap: 1.5rem;
