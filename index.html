@@ -690,176 +690,183 @@ footer {
 
 /* ─── COMMERCIAL DEMO ─── */
 
-  .demo-section {
-    background: var(--bg);
-    overflow: hidden;
-  }
+.demo-section {
+  background: var(--bg);
+  overflow: hidden;
+}
 
-  .demo-header {
-    display: grid;
-    grid-template-columns: 1fr 0.8fr;
-    gap: 5rem;
-    align-items: end;
-    margin-bottom: 5rem;
-  }
+.demo-header {
+  display: grid;
+  grid-template-columns: 1fr .8fr;
+  gap: 4rem;
+  align-items: end;
+  margin-bottom: 3rem;
+}
 
-  .demo-header h2 {
-    font-family: var(--head);
-    font-size: clamp(2.5rem, 5vw, 4.2rem);
-    line-height: .95;
-    letter-spacing: -.04em;
-    margin: 0;
-  }
+.demo-header h2 {
+  font-family: var(--head);
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  line-height: .95;
+  letter-spacing: -.04em;
+  margin: 0;
+}
 
-  .demo-header h2 span {
-    color: var(--blue3);
-  }
+.demo-header h2 span {
+  color: var(--blue3);
+}
 
-  .demo-header .sdesc {
-    margin: 0;
-  }
+.demo-header .sdesc {
+  margin: 0;
+}
 
-  .demo-showcase {
-    min-height: 560px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    gap: 5rem;
-    position: relative;
-    padding: 0 2rem 3rem;
-  }
+.demo-showcase {
+  min-height: 440px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4rem;
+  position: relative;
+  padding: 0 2rem 1.5rem;
+}
 
-  /* ─── DEVICES ─── */
 
-  .device {
-    position: relative;
-  }
+/* ─── DEVICES ─── */
 
-  .laptop-screen {
-    width: 570px;
-    height: 350px;
-    padding: 11px;
-    background: #171b22;
-    border: 1px solid #303641;
-    border-radius: 14px 14px 7px 7px;
-    box-shadow: 0 25px 60px rgba(0,0,0,.35);
-  }
+.device {
+  position: relative;
+}
 
-  .laptop-screen::before {
-    content: "";
-    position: absolute;
-    top: 5px;
-    left: 50%;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: #353b45;
-    transform: translateX(-50%);
-  }
+.laptop-screen {
+  width: 520px;
+  height: 320px;
+  padding: 10px;
+  background: #171b22;
+  border: 1px solid #303641;
+  border-radius: 14px 14px 7px 7px;
+  box-shadow: 0 25px 60px rgba(0,0,0,.35);
+}
 
-  .laptop-screen .screen-content {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    border-radius: 7px;
-    background: #0d1117;
-  }
+.laptop-screen::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #353b45;
+  transform: translateX(-50%);
+}
 
-  .laptop-base {
-    width: 650px;
-    height: 18px;
-    margin-left: -40px;
-    background: linear-gradient(to bottom, #363c45, #1c2128);
-    border-radius: 2px 2px 12px 12px;
-    position: relative;
-    box-shadow: 0 8px 15px rgba(0,0,0,.25);
-  }
+.laptop-screen .screen-content {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 7px;
+  background: #0d1117;
+}
 
-  .laptop-base::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 4px;
-    width: 90px;
-    height: 3px;
-    border-radius: 10px;
-    background: #11151b;
-    transform: translateX(-50%);
-  }
+.laptop-base {
+  width: 590px;
+  height: 17px;
+  margin-left: -35px;
+  background: linear-gradient(to bottom, #363c45, #1c2128);
+  border-radius: 2px 2px 12px 12px;
+  position: relative;
+  box-shadow: 0 8px 15px rgba(0,0,0,.25);
+}
 
-  /* ─── PC ─── */
+.laptop-base::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 4px;
+  width: 85px;
+  height: 3px;
+  border-radius: 10px;
+  background: #11151b;
+  transform: translateX(-50%);
+}
 
-  .device-pc {
-    margin-bottom: 22px;
-  }
 
-  .pc-monitor {
-    width: 430px;
-    height: 300px;
-    padding: 10px;
-    background: #171b22;
-    border: 1px solid #303641;
-    border-radius: 10px;
-    box-shadow: 0 25px 60px rgba(0,0,0,.35);
-  }
+/* ─── PC ─── */
 
-  .pc-monitor .screen-content {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    border-radius: 5px;
-    background: #0d1117;
-  }
+.device-pc {
+  margin-bottom: 18px;
+}
 
-  .pc-stand {
-    width: 70px;
-    height: 55px;
-    margin: 0 auto;
-    background: linear-gradient(to right, #252b33, #353b45, #252b33);
-  }
+.pc-monitor {
+  width: 390px;
+  height: 275px;
+  padding: 9px;
+  background: #171b22;
+  border: 1px solid #303641;
+  border-radius: 10px;
+  box-shadow: 0 25px 60px rgba(0,0,0,.35);
+}
 
-  .pc-base {
-    width: 150px;
-    height: 8px;
-    margin: 0 auto;
-    border-radius: 8px 8px 3px 3px;
-    background: #303640;
-  }
+.pc-monitor .screen-content {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+  background: #0d1117;
+}
 
-  /* ─── SCREEN PLACEHOLDER ─── */
+.pc-stand {
+  width: 65px;
+  height: 48px;
+  margin: 0 auto;
+  background: linear-gradient(to right, #252b33, #353b45, #252b33);
+}
 
-  .demo-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background:
-      radial-gradient(circle at 70% 25%, rgba(59,130,246,.12), transparent 30%),
-      linear-gradient(135deg, #111823, #0d1117);
-  }
+.pc-base {
+  width: 140px;
+  height: 8px;
+  margin: 0 auto;
+  border-radius: 8px 8px 3px 3px;
+  background: #303640;
+}
 
-  .demo-placeholder span {
-    font-family: var(--head);
-    font-size: 11px;
-    letter-spacing: .16em;
-    color: rgba(147,197,253,.45);
-  }
 
-  /* ─── HOVER ─── */
+/* ─── SCREEN PLACEHOLDER ─── */
 
-  .device {
-    transition: transform .4s ease;
-  }
+.demo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(
+      circle at 70% 25%,
+      rgba(59,130,246,.12),
+      transparent 30%
+    ),
+    linear-gradient(135deg, #111823, #0d1117);
+}
 
-  .device-laptop:hover {
-    transform: translateY(-8px) rotate(-1deg);
-  }
+.demo-placeholder span {
+  font-family: var(--head);
+  font-size: 11px;
+  letter-spacing: .16em;
+  color: rgba(147,197,253,.45);
+}
 
-  .device-pc:hover {
-    transform: translateY(-8px) rotate(1deg);
-  }
 
+/* ─── HOVER ─── */
+
+.device {
+  transition: transform .4s ease;
+}
+
+.device-laptop:hover {
+  transform: translateY(-8px) rotate(-1deg);
+}
+
+.device-pc:hover {
+  transform: translateY(-8px) rotate(1deg);
+}
 /* Automatizaciones */
 .automation-section {
   background:var(--bg2);
@@ -1468,6 +1475,7 @@ footer {
   <a href="#" class="nav-logo">ML<span>.</span>Dev</a>
   <ul class="nav-links">
     <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#demo">Demo</a></li>
     <li><a href="#automatizaciones">Automatizaciones</a></li>
     <li><a href="#experiencia">Experiencia</a></li>
     <li><a href="#sobre-mi">Sobre mí</a></li>
