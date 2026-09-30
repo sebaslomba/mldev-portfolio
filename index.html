@@ -854,32 +854,35 @@ footer {
 .automation-header {
   display:grid;
   grid-template-columns:1fr .8fr;
-  gap:4rem;
+  gap:5rem;
   align-items:end;
-  margin-bottom:2rem;
+  margin-bottom:3rem;
 }
 
 .automation-header h2 {
   font-family:var(--head);
-  font-size:clamp(2.5rem,5vw,4rem);
-  line-height:.95;
-  letter-spacing:-.04em;
+  font-size:clamp(3rem,5vw,4.5rem);
+  line-height:.92;
+  letter-spacing:-.045em;
   margin:0;
 }
 
 .automation-header .sdesc {
   margin:0;
+  max-width:520px;
 }
 
 
-/* Selector de casos */
+/* Showcase */
 
 .automation-showcase {
   background:var(--bg3);
   border:1px solid var(--border);
-  border-radius:var(--r);
+  border-radius:18px;
   overflow:hidden;
 }
+
+/* Selector */
 
 .automation-timeline {
   display:flex;
@@ -898,8 +901,8 @@ footer {
   border-right:1px solid var(--border);
   background:transparent;
   color:var(--muted);
-  padding:.9rem 1rem;
-  min-width:130px;
+  padding:1.15rem 1.25rem;
+  min-width:145px;
   font-family:var(--body);
   text-align:left;
   cursor:pointer;
@@ -914,62 +917,62 @@ footer {
   display:block;
   color:var(--blue3);
   font-family:var(--head);
-  font-size:.62rem;
-  margin-bottom:.25rem;
+  font-size:.65rem;
+  margin-bottom:.4rem;
 }
 
 .automation-timeline-item strong {
-  font-size:.75rem;
+  font-size:.8rem;
   font-weight:500;
 }
 
 .automation-timeline-item:hover,
 .automation-timeline-item.active {
-  background:var(--glow);
+  background:rgba(37,99,235,.08);
   color:var(--text);
 }
 
 
-/* Proceso + explicación */
+/* Proceso */
 
 .automation-showcase-body {
   display:grid;
-  grid-template-columns:250px 1fr;
-  min-height:215px;
+  grid-template-columns:300px 1fr;
+  min-height:300px;
 }
 
 .automation-process {
   display:flex;
   flex-direction:column;
   justify-content:center;
-  padding:1.5rem;
+  padding:2.5rem;
   border-right:1px solid var(--border);
 }
 
 .process-step {
   display:flex;
   align-items:center;
-  gap:.8rem;
+  gap:1rem;
 }
 
 .process-step span {
-  width:30px;
-  height:30px;
+  width:38px;
+  height:38px;
   border-radius:50%;
   border:1px solid var(--border2);
-  background:var(--glow);
+  background:rgba(37,99,235,.07);
   display:flex;
   align-items:center;
   justify-content:center;
   color:var(--blue3);
   font-family:var(--head);
-  font-size:.62rem;
+  font-size:.65rem;
   flex-shrink:0;
 }
 
 .process-step strong {
   font-family:var(--head);
-  font-size:.8rem;
+  font-size:.95rem;
 }
 
 .process-step-active span {
@@ -980,20 +983,27 @@ footer {
 
 .process-line {
   width:1px;
-  height:22px;
-  background:var(--border2);
-  margin-left:15px;
+  height:42px;
+  background:linear-gradient(
+    to bottom,
+    var(--border2),
+    rgba(37,99,235,.08)
+  );
+  margin-left:19px;
 }
 
 
 /* Contenido */
 
 .automation-case-content {
-  padding:1.75rem 2rem;
+  padding:3rem 3.25rem;
+  display:flex;
+  align-items:center;
 }
 
 .automation-case-panel {
   display:none;
+  width:100%;
 }
 
 .automation-case-panel.active {
@@ -1004,54 +1014,56 @@ footer {
   display:block;
   color:var(--blue3);
   font-family:var(--head);
-  font-size:.62rem;
-  letter-spacing:.08em;
-  margin-bottom:.65rem;
+  font-size:.68rem;
+  letter-spacing:.1em;
+  margin-bottom:1rem;
 }
 
 .automation-case-panel h3 {
   font-family:var(--head);
-  font-size:clamp(1.25rem,2vw,1.65rem);
-  line-height:1.1;
-  max-width:600px;
-  margin:0 0 .6rem;
+  font-size:clamp(1.6rem,2.5vw,2.15rem);
+  line-height:1.05;
+  letter-spacing:-.02em;
+  max-width:650px;
+  margin:0 0 1rem;
 }
 
 .automation-case-panel p {
   color:var(--muted);
-  font-size:.82rem;
-  line-height:1.55;
+  font-size:.9rem;
+  line-height:1.7;
   max-width:650px;
-  margin:0 0 1rem;
+  margin:0 0 1.5rem;
 }
 
 .automation-benefits {
   display:flex;
   flex-wrap:wrap;
-  gap:.45rem;
+  gap:.55rem;
 }
 
 .automation-benefits span {
   color:var(--blue3);
-  font-size:.65rem;
+  font-size:.7rem;
   border:1px solid var(--border2);
   border-radius:999px;
-  padding:.3rem .55rem;
+  padding:.4rem .7rem;
 }
 
 
 /* CTA */
 
 .automation-cta {
-  margin-top:1rem;
-  padding:1rem 1.5rem;
+  margin-top:1.5rem;
+  padding:1.4rem 1.75rem;
   border:1px solid rgba(37,99,235,.25);
   border-radius:var(--r);
-  background:linear-gradient(
-    135deg,
-    rgba(37,99,235,.12),
-    rgba(99,102,241,.05)
-  );
+  background:
+    linear-gradient(
+      135deg,
+      rgba(37,99,235,.14),
+      rgba(99,102,241,.06)
+    );
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -1060,13 +1072,13 @@ footer {
 
 .automation-cta-label {
   color:var(--blue3);
-  font-size:.65rem;
-  margin:0 0 .25rem;
+  font-size:.68rem;
+  margin:0 0 .35rem;
 }
 
 .automation-cta h3 {
   font-family:var(--head);
-  font-size:1rem;
+  font-size:1.15rem;
   margin:0;
 }
 
