@@ -1665,6 +1665,7 @@ footer {
 
   .demo-stat {
     position: absolute;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1690,18 +1691,18 @@ footer {
   .demo-stat-main {
     width: 125px;
     height: 100px;
-    top: 5%;
-    right: 5%;
-    transform: rotate(3deg);
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
   }
 
   .demo-stat-secondary {
     width: 105px;
     height: 82px;
-    bottom: 8%;
-    left: 5%;
+    bottom: 5%;
+    left: 0;
     background: var(--demo-accent);
-    transform: rotate(-5deg);
+    transform: none;
   }
 
   .demo-orbit {
