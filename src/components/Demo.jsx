@@ -63,21 +63,41 @@ export default function Demo() {
 
         <div className="react-demo-hero">
 
-          <span className="react-demo-label">
-            {demo.label}
-          </span>
+            <div className="react-demo-copy">
 
-          <h3>
-            {demo.title}
-          </h3>
+                <span className="react-demo-label">
+                {demo.label}
+                </span>
 
-          <p>
-            {demo.description}
-          </p>
+                <h3>
+                {demo.title}
+                </h3>
 
-          <button className="react-demo-button">
-            {demo.button}
-          </button>
+                <p>
+                {demo.description}
+                </p>
+
+                <button className="react-demo-button">
+                {demo.button}
+                </button>
+
+            </div>
+
+            <div className="react-demo-visual">
+
+                <div className="demo-stat demo-stat-main">
+                <strong>+24%</strong>
+                <span>crecimiento</span>
+                </div>
+
+                <div className="demo-stat demo-stat-secondary">
+                <strong>1.2K</strong>
+                <span>clientes</span>
+                </div>
+
+                <div className="demo-orbit"></div>
+
+            </div>
 
         </div>
 
