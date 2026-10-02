@@ -1703,8 +1703,8 @@ footer {
   .demo-stat-secondary {
     width: 82px;
     height: 60px;
-    bottom: 5%;
-    left: 0;
+    top: 58%;
+    left: 5%;
     background: var(--demo-accent);
     transform: none;
   }
@@ -1751,6 +1751,50 @@ footer {
   .laptop-screen .react-demo-visual {
     width: 42%;
     min-width: 0;
+  }
+
+    .demo-stats-column {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 105px;
+  }
+
+  .demo-stats-column .demo-stat {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    min-height: 58px;
+    padding: 11px 13px;
+    border-radius: 11px;
+    transform: none;
+    box-sizing: border-box;
+  }
+
+  .demo-stats-column .demo-stat-main {
+    background: #e7ebe3;
+    color: #182018;
+    border: 1px solid rgba(75, 145, 67, 0.18);
+  }
+
+  .demo-stats-column .demo-stat-secondary {
+    background: var(--demo-accent);
+    color: #fff;
+  }
+
+  .demo-stats-column .demo-stat strong {
+    font-size: 18px;
+  }
+
+  .demo-stats-column .demo-stat span {
+    font-size: 8px;
+  }
+
+  .demo-stats-column + .demo-orbit {
+    z-index: 0;
   }
 </style>
 </head>

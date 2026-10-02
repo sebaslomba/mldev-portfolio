@@ -85,6 +85,8 @@ export default function Demo() {
 
             <div className="react-demo-visual">
 
+            <div className="demo-stats-column">
+
                 <div className="demo-stat demo-stat-main">
                 <strong>+24%</strong>
                 <span>crecimiento</span>
@@ -95,7 +97,9 @@ export default function Demo() {
                 <span>clientes</span>
                 </div>
 
-                <div className="demo-orbit"></div>
+            </div>
+
+            <div className="demo-orbit"></div>
 
             </div>
 
