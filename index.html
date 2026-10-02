@@ -720,15 +720,503 @@ footer {
   margin: 0;
 }
 
-.demo-showcase {
-  min-height: 440px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  gap: 4rem;
-  position: relative;
-  padding: 0 2rem 1.5rem;
-}
+  .demo-showcase {
+    width: 100%;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  /* ─── REACT DEMO ─── */
+
+  #demo-react {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .react-demo {
+    width: min(100%, 920px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  /* TOOLBAR */
+
+  .react-demo-toolbar {
+    display: flex;
+    justify-content: center;
+  }
+
+  .react-demo-devices {
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+    padding: .35rem;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 999px;
+    background: rgba(255,255,255,.035);
+    backdrop-filter: blur(14px);
+  }
+
+  .react-demo-devices button {
+    border: 0;
+    padding: .55rem .9rem;
+    border-radius: 999px;
+    background: transparent;
+    color: rgba(255,255,255,.45);
+    font: inherit;
+    font-size: .72rem;
+    cursor: pointer;
+    transition:
+      color .3s ease,
+      background .3s ease,
+      transform .3s ease;
+  }
+
+  .react-demo-devices button:hover {
+    color: rgba(255,255,255,.85);
+  }
+
+  .react-demo-devices button.active {
+    color: #fff;
+    background: rgba(255,255,255,.1);
+  }
+
+  /* STAGE */
+
+  .react-demo-stage {
+    width: 100%;
+    min-height: 430px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1400px;
+  }
+
+  /* DEVICE */
+
+  .react-demo-device {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition:
+      width .65s cubic-bezier(.22,1,.36,1),
+      transform .65s cubic-bezier(.22,1,.36,1),
+      filter .65s ease;
+  }
+
+  /* SCREEN */
+
+  .react-demo-screen {
+    position: relative;
+    overflow: hidden;
+    background: #0b0f14;
+    border: 1px solid rgba(255,255,255,.12);
+    box-shadow:
+      0 35px 90px rgba(0,0,0,.45),
+      0 0 0 1px rgba(255,255,255,.025);
+    transition:
+      width .65s cubic-bezier(.22,1,.36,1),
+      height .65s cubic-bezier(.22,1,.36,1),
+      border-radius .65s cubic-bezier(.22,1,.36,1),
+      box-shadow .65s ease;
+  }
+
+  /* WEBSITE */
+
+  .react-demo-website {
+    width: 100%;
+    min-height: 100%;
+    background:
+      radial-gradient(
+        circle at 80% 10%,
+        rgba(59,130,246,.14),
+        transparent 30%
+      ),
+      linear-gradient(145deg, #101722, #090d12 70%);
+    color: #fff;
+    overflow: hidden;
+  }
+
+  .demo-site-nav {
+    height: 48px;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+    background: rgba(7,10,14,.55);
+    backdrop-filter: blur(14px);
+  }
+
+  .demo-site-nav strong {
+    font-size: .7rem;
+    letter-spacing: .14em;
+  }
+
+  .demo-site-nav nav {
+    display: flex;
+    align-items: center;
+    gap: .2rem;
+  }
+
+  .demo-site-nav nav button,
+  .demo-menu-button {
+    border: 0;
+    background: transparent;
+    color: rgba(255,255,255,.45);
+    font: inherit;
+    font-size: .62rem;
+    cursor: pointer;
+    transition: color .25s ease;
+  }
+
+  .demo-site-nav nav button:hover,
+  .demo-site-nav nav button.active {
+    color: #fff;
+  }
+
+  .demo-menu-button {
+    display: none;
+  }
+
+  /* CONTENT */
+
+  .demo-site-content {
+    min-height: calc(100% - 48px);
+  }
+
+  .demo-site-hero {
+    min-height: 245px;
+    padding: 2.2rem 2.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .demo-site-eyebrow {
+    margin-bottom: .8rem;
+    color: #7db4ff;
+    font-size: .55rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  .demo-site-hero h3 {
+    max-width: 520px;
+    margin: 0;
+    font-family: var(--head);
+    font-size: clamp(1.7rem, 3vw, 3rem);
+    line-height: .95;
+    letter-spacing: -.045em;
+  }
+
+  .demo-site-hero h3 span {
+    color: #6ea8ff;
+  }
+
+  .demo-site-hero p {
+    max-width: 430px;
+    margin: 1rem 0 1.2rem;
+    color: rgba(255,255,255,.48);
+    font-size: .72rem;
+    line-height: 1.6;
+  }
+
+  .demo-site-cta {
+    align-self: flex-start;
+    border: 0;
+    padding: .65rem 1rem;
+    border-radius: 999px;
+    background: #fff;
+    color: #0b0f14;
+    font: inherit;
+    font-size: .65rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+      transform .25s ease,
+      box-shadow .25s ease;
+  }
+
+  .demo-site-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255,255,255,.15);
+  }
+
+  /* SERVICES */
+
+  .demo-site-services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid rgba(255,255,255,.07);
+  }
+
+  .demo-site-services article {
+    min-height: 120px;
+    padding: 1rem;
+    border-right: 1px solid rgba(255,255,255,.07);
+    transition:
+      background .3s ease,
+      transform .3s ease;
+  }
+
+  .demo-site-services article:last-child {
+    border-right: 0;
+  }
+
+  .demo-site-services article:hover {
+    background: rgba(255,255,255,.035);
+  }
+
+  .demo-site-services span {
+    display: block;
+    margin-bottom: .8rem;
+    color: rgba(255,255,255,.25);
+    font-size: .55rem;
+  }
+
+  .demo-site-services strong {
+    display: block;
+    margin-bottom: .35rem;
+    font-size: .75rem;
+  }
+
+  .demo-site-services p {
+    margin: 0;
+    color: rgba(255,255,255,.4);
+    font-size: .58rem;
+    line-height: 1.5;
+  }
+
+  /* DEVICE BASE */
+
+  .react-demo-device-base {
+    width: 90%;
+    height: 10px;
+    margin-top: 0;
+    border-radius: 0 0 12px 12px;
+    background: linear-gradient(
+      to bottom,
+      #303741,
+      #181d24
+    );
+    box-shadow: 0 12px 20px rgba(0,0,0,.25);
+    transition:
+      width .65s cubic-bezier(.22,1,.36,1),
+      opacity .4s ease;
+  }
+
+  /* NOTEBOOK */
+
+  .demo-notebook .react-demo-device {
+    width: 700px;
+  }
+
+  .demo-notebook .react-demo-screen {
+    width: 700px;
+    height: 410px;
+    border-radius: 12px 12px 5px 5px;
+  }
+
+  .demo-notebook .react-demo-device-base {
+    width: 760px;
+  }
+
+  /* DESKTOP */
+
+  .demo-desktop .react-demo-device {
+    width: 820px;
+  }
+
+  .demo-desktop .react-demo-screen {
+    width: 820px;
+    height: 460px;
+    border-radius: 9px;
+  }
+
+  .demo-desktop .react-demo-device-base {
+    width: 110px;
+    height: 55px;
+    border-radius: 0;
+    position: relative;
+  }
+
+  .demo-desktop .react-demo-device-base::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -7px;
+    width: 190px;
+    height: 7px;
+    transform: translateX(-50%);
+    border-radius: 8px 8px 3px 3px;
+    background: #252b33;
+  }
+
+  /* MOBILE */
+
+  .demo-mobile .react-demo-device {
+    width: 260px;
+  }
+
+  .demo-mobile .react-demo-screen {
+    width: 260px;
+    height: 500px;
+    border-radius: 28px;
+    border-width: 5px;
+    box-shadow:
+      0 35px 90px rgba(0,0,0,.5),
+      0 0 0 1px rgba(255,255,255,.08);
+  }
+
+  .demo-mobile .react-demo-device-base {
+    display: none;
+  }
+
+  .demo-mobile .demo-site-nav {
+    height: 42px;
+    padding: 0 .8rem;
+  }
+
+  .demo-mobile .demo-site-nav nav {
+    display: none;
+  }
+
+  .demo-mobile .demo-menu-button {
+    display: block;
+    font-size: .8rem;
+  }
+
+  .demo-mobile .demo-site-hero {
+    min-height: 300px;
+    padding: 1.7rem 1.3rem;
+  }
+
+  .demo-mobile .demo-site-hero h3 {
+    font-size: 2rem;
+  }
+
+  .demo-mobile .demo-site-hero p {
+    font-size: .68rem;
+  }
+
+  .demo-mobile .demo-site-services {
+    grid-template-columns: 1fr;
+  }
+
+  .demo-mobile .demo-site-services article {
+    min-height: auto;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+    padding: .8rem 1rem;
+  }
+
+  .demo-mobile .demo-site-services article:last-child {
+    border-bottom: 0;
+  }
+
+  /* TABLET / NOTEBOOK */
+
+  @media (max-width: 900px) {
+    .demo-header {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .demo-showcase {
+      min-height: 440px;
+    }
+
+    .demo-notebook .react-demo-device {
+      width: min(700px, 90vw);
+    }
+
+    .demo-notebook .react-demo-screen {
+      width: min(700px, 90vw);
+      height: auto;
+      aspect-ratio: 700 / 410;
+    }
+
+    .demo-notebook .react-demo-device-base {
+      width: min(760px, 96vw);
+    }
+
+    .demo-desktop .react-demo-device {
+      width: min(820px, 92vw);
+    }
+
+    .demo-desktop .react-demo-screen {
+      width: min(820px, 92vw);
+      height: auto;
+      aspect-ratio: 820 / 460;
+    }
+  }
+
+  /* MOBILE PAGE */
+
+  @media (max-width: 600px) {
+    .demo-showcase {
+      min-height: 570px;
+    }
+
+    .react-demo {
+      gap: 1rem;
+    }
+
+    .react-demo-stage {
+      min-height: 500px;
+    }
+
+    .react-demo-devices {
+      max-width: calc(100vw - 2rem);
+    }
+
+    .react-demo-devices button {
+      padding: .5rem .7rem;
+      font-size: .65rem;
+    }
+
+    .demo-notebook .react-demo-device,
+    .demo-desktop .react-demo-device {
+      width: 92vw;
+    }
+
+    .demo-notebook .react-demo-screen,
+    .demo-desktop .react-demo-screen {
+      width: 92vw;
+      height: auto;
+      aspect-ratio: 1.65;
+    }
+
+    .demo-notebook .react-demo-device-base {
+      width: 96vw;
+    }
+
+    .demo-site-hero {
+      padding: 1.4rem;
+    }
+
+    .demo-site-services {
+      grid-template-columns: 1fr;
+    }
+
+    .demo-site-services article {
+      border-right: 0;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+
+    .demo-site-services article:last-child {
+      border-bottom: 0;
+    }
+  }
 
 
 /* ─── DEVICES ─── */
@@ -1831,38 +2319,7 @@ footer {
     </div>
 
     <div class="demo-showcase">
-
-      <!-- NOTEBOOK -->
-      <div class="device device-laptop reveal">
-
-        <div class="laptop-screen">
-          <div class="screen-content">
-            <div id="demo-react"></div>
-          </div>
-        </div>
-
-        <div class="laptop-base">
-          <div class="laptop-notch"></div>
-        </div>
-
-      </div>
-
-      <!-- PC -->
-      <div class="device device-pc reveal">
-
-        <div class="pc-monitor">
-          <div class="screen-content">
-            <div class="demo-placeholder">
-              <span>WEB DEMO</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="pc-stand"></div>
-        <div class="pc-base"></div>
-
-      </div>
-
+      <div class="demo-react"></div>
     </div>
 
   </div>

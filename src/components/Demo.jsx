@@ -1,107 +1,163 @@
 import React, { useState } from "react";
 
-const demos = {
-  web: {
-    label: "Web / Notebook",
-    brand: "NOVA",
-    title: "Soluciones que hacen crecer tu negocio.",
-    description:
-      "Una presencia digital clara, moderna y pensada para convertir visitas en clientes.",
-    button: "Conocé más",
+const devices = [
+  {
+    id: "notebook",
+    label: "Notebook",
   },
-
-  mobile: {
+  {
+    id: "desktop",
+    label: "Desktop",
+  },
+  {
+    id: "mobile",
     label: "Mobile",
-    brand: "NOVA APP",
-    title: "Todo tu negocio en un solo lugar.",
-    description:
-      "Una experiencia móvil simple para que tus clientes puedan acceder a tus servicios desde cualquier lugar.",
-    button: "Explorar",
   },
+];
 
-  automation: {
-    label: "Automatización",
-    brand: "NOVA FLOW",
-    title: "Automatizá lo que te quita tiempo.",
-    description:
-      "Conectá formularios, WhatsApp y APIs para que las tareas repetitivas sucedan automáticamente.",
-    button: "Ver cómo funciona",
+const sections = [
+  {
+    id: "inicio",
+    label: "Inicio",
   },
-};
+  {
+    id: "servicios",
+    label: "Servicios",
+  },
+  {
+    id: "contacto",
+    label: "Contacto",
+  },
+];
 
 export default function Demo() {
-  const [activeTab, setActiveTab] = useState("web");
-
-  const demo = demos[activeTab];
+  const [activeDevice, setActiveDevice] = useState("notebook");
+  const [activeSection, setActiveSection] = useState("inicio");
 
   return (
-    <div className="react-demo">
+    <div className={`react-demo demo-${activeDevice}`}>
 
-      <div className="react-demo-tabs">
-        {Object.entries(demos).map(([key, item]) => (
-          <button
-            key={key}
-            className={activeTab === key ? "active" : ""}
-            onClick={() => setActiveTab(key)}
-          >
-            {item.label}
-          </button>
-        ))}
-      </div>
+      <div className="react-demo-toolbar">
 
-      <div className="react-demo-content">
-
-        <div className="react-demo-nav">
-          <strong>{demo.brand}</strong>
-
-          <div className="react-demo-nav-links">
-            <span>Inicio</span>
-            <span>Servicios</span>
-            <span>Contacto</span>
-          </div>
+        <div className="react-demo-devices">
+          {devices.map((device) => (
+            <button
+              key={device.id}
+              type="button"
+              className={
+                activeDevice === device.id ? "active" : ""
+              }
+              onClick={() => setActiveDevice(device.id)}
+            >
+              {device.label}
+            </button>
+          ))}
         </div>
 
-        <div className="react-demo-hero">
+      </div>
 
-            <div className="react-demo-copy">
+      <div className="react-demo-stage">
 
-                <span className="react-demo-label">
-                {demo.label}
-                </span>
+        <div className="react-demo-device">
 
-                <h3>
-                {demo.title}
-                </h3>
+          <div className="react-demo-screen">
 
-                <p>
-                {demo.description}
-                </p>
+            <div className="react-demo-website">
 
-                <button className="react-demo-button">
-                {demo.button}
+              <header className="demo-site-nav">
+
+                <strong>NOVA</strong>
+
+                <nav>
+                  {sections.map((section) => (
+                    <button
+                      key={section.id}
+                      type="button"
+                      className={
+                        activeSection === section.id ? "active" : ""
+                      }
+                      onClick={() =>
+                        setActiveSection(section.id)
+                      }
+                    >
+                      {section.label}
+                    </button>
+                  ))}
+                </nav>
+
+                <button
+                  type="button"
+                  className="demo-menu-button"
+                  aria-label="Abrir menú"
+                >
+                  ☰
                 </button>
 
+              </header>
+
+              <main className="demo-site-content">
+
+                <section className="demo-site-hero">
+
+                  <span className="demo-site-eyebrow">
+                    Diseño · Desarrollo · Automatización
+                  </span>
+
+                  <h3>
+                    Una web que no solo se ve bien.
+                    <span> Se mueve.</span>
+                  </h3>
+
+                  <p>
+                    Experiencias digitales modernas, rápidas y
+                    adaptadas a cualquier dispositivo.
+                  </p>
+
+                  <button
+                    type="button"
+                    className="demo-site-cta"
+                    onClick={() => setActiveSection("servicios")}
+                  >
+                    Ver servicios
+                  </button>
+
+                </section>
+
+                <section className="demo-site-services">
+
+                  <article>
+                    <span>01</span>
+                    <strong>Web</strong>
+                    <p>
+                      Sitios modernos y responsive.
+                    </p>
+                  </article>
+
+                  <article>
+                    <span>02</span>
+                    <strong>Automatización</strong>
+                    <p>
+                      Procesos conectados y eficientes.
+                    </p>
+                  </article>
+
+                  <article>
+                    <span>03</span>
+                    <strong>Integraciones</strong>
+                    <p>
+                      APIs, formularios y herramientas.
+                    </p>
+                  </article>
+
+                </section>
+
+              </main>
+
             </div>
 
-            <div className="react-demo-visual">
+          </div>
 
-            <div className="demo-stats-column">
-
-                <div className="demo-stat demo-stat-main">
-                <strong>+24%</strong>
-                <span>crecimiento</span>
-                </div>
-
-                <div className="demo-stat demo-stat-secondary">
-                <strong>1.2K</strong>
-                <span>clientes</span>
-                </div>
-
-            </div>
-
-            <div className="demo-orbit"></div>
-
-            </div>
+          <div className="react-demo-device-base" />
 
         </div>
 
