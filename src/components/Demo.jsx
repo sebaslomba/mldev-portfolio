@@ -3,24 +3,29 @@ import React, { useState } from "react";
 const demos = {
   web: {
     label: "Web / Notebook",
-    title: "Tu negocio, online.",
+    brand: "NOVA",
+    title: "Soluciones que hacen crecer tu negocio.",
     description:
-      "Una landing profesional para mostrar tus servicios, generar confianza y convertir visitas en clientes.",
-    button: "Ver proyecto",
+      "Una presencia digital clara, moderna y pensada para convertir visitas en clientes.",
+    button: "Conocé más",
   },
+
   mobile: {
     label: "Mobile",
-    title: "Experiencia pensada para celular.",
+    brand: "NOVA APP",
+    title: "Todo tu negocio en un solo lugar.",
     description:
-      "Interfaces adaptadas a dispositivos móviles para que tus clientes puedan interactuar con tu negocio desde cualquier lugar.",
-    button: "Ver experiencia",
+      "Una experiencia móvil simple para que tus clientes puedan acceder a tus servicios desde cualquier lugar.",
+    button: "Explorar",
   },
+
   automation: {
     label: "Automatización",
-    title: "Menos tareas repetitivas.",
+    brand: "NOVA FLOW",
+    title: "Automatizá lo que te quita tiempo.",
     description:
-      "Automatizaciones conectadas con formularios, WhatsApp, APIs y herramientas digitales para ahorrar tiempo.",
-    button: "Ver automatización",
+      "Conectá formularios, WhatsApp y APIs para que las tareas repetitivas sucedan automáticamente.",
+    button: "Ver cómo funciona",
   },
 };
 
@@ -46,21 +51,35 @@ export default function Demo() {
 
       <div className="react-demo-content">
 
-        <span className="react-demo-label">
-          {demo.label}
-        </span>
+        <div className="react-demo-nav">
+          <strong>{demo.brand}</strong>
 
-        <h3>
-          {demo.title}
-        </h3>
+          <div className="react-demo-nav-links">
+            <span>Inicio</span>
+            <span>Servicios</span>
+            <span>Contacto</span>
+          </div>
+        </div>
 
-        <p>
-          {demo.description}
-        </p>
+        <div className="react-demo-hero">
 
-        <button className="react-demo-button">
-          {demo.button}
-        </button>
+          <span className="react-demo-label">
+            {demo.label}
+          </span>
+
+          <h3>
+            {demo.title}
+          </h3>
+
+          <p>
+            {demo.description}
+          </p>
+
+          <button className="react-demo-button">
+            {demo.button}
+          </button>
+
+        </div>
 
       </div>
 
