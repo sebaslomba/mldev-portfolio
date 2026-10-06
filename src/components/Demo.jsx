@@ -53,6 +53,7 @@ const services = [
 
 export default function Demo() {
   const [activeDevice, setActiveDevice] = useState("notebook");
+  const [isChangingDevice, setIsChangingDevice] = useState(false);
   const [activeSection, setActiveSection] = useState("inicio");
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeService, setActiveService] = useState(null);
@@ -63,11 +64,18 @@ export default function Demo() {
   };
 
   const handleDeviceChange = (device) => {
-    setActiveDevice(device);
-  };
+  if (device === activeDevice) return;
+
+  setIsChangingDevice(true);
+  setActiveDevice(device);
+
+  setTimeout(() => {
+    setIsChangingDevice(false);
+  }, 900);
+};
 
   return (
-    <div className={`react-demo demo-${activeDevice}`}>
+    <div className={`react-demo demo-${activeDevice} ${ isChangingDevice ? "is-changing" : "" }`}>
 
       {/* DEVICE SELECTOR */}
 
