@@ -78,68 +78,79 @@ nav {
     background .3s ease,
     box-shadow .3s ease;
 
-    animation: navLiquidIn 1.4s cubic-bezier(.22, 1, .36, 1) both;
-transform-origin: center center;
+     transform-origin: center center;
+  animation: navLiquidRise 1.5s cubic-bezier(.22, 1, .36, 1) both;
 }
 
-@keyframes navLiquidIn {
+@keyframes navLiquidRise {
+
   0% {
     opacity: 0;
+
     transform:
-      translateY(38px)
-      scaleX(.035)
-      scaleY(.12);
+      translateY(calc(50vh - 45px))
+      scale(.06);
+
     border-radius: 50%;
-    filter: blur(12px);
+
+    filter: blur(10px);
   }
 
-  20% {
-    opacity: .35;
-    transform:
-      translateY(22px)
-      scaleX(.08)
-      scaleY(.28);
-    border-radius: 50%;
-    filter: blur(8px);
-  }
-
-  45% {
+  18% {
     opacity: .7;
+
     transform:
-      translateY(5px)
-      scaleX(.32)
-      scaleY(.62);
+      translateY(calc(50vh - 45px))
+      scale(.09);
+
     border-radius: 50%;
-    filter: blur(4px);
+
+    filter: blur(5px);
   }
 
-  70% {
-    opacity: .92;
+  48% {
+    opacity: 1;
+
     transform:
-      translateY(-1px)
-      scaleX(.72)
-      scaleY(.88);
-    border-radius: 22px;
-    filter: blur(1.5px);
+      translateY(0)
+      scale(.12);
+
+    border-radius: 50%;
+
+    filter: blur(3px);
+  }
+
+  72% {
+    transform:
+      translateY(0)
+      scaleX(.55)
+      scaleY(.7);
+
+    border-radius: 28px;
+
+    filter: blur(1px);
   }
 
   88% {
-    opacity: 1;
     transform:
       translateY(0)
-      scaleX(1.03)
-      scaleY(1);
-    border-radius: 19px;
+      scaleX(.92)
+      scaleY(.96);
+
+    border-radius: 20px;
+
     filter: blur(.3px);
   }
 
   100% {
     opacity: 1;
+
     transform:
       translateY(0)
-      scaleX(1)
-      scaleY(1);
+      scale(1);
+
     border-radius: 18px;
+
     filter: blur(0);
   }
 }
