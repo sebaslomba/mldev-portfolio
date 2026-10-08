@@ -359,6 +359,9 @@ nav {
     border-color .35s ease,
     box-shadow .35s ease,
     background .35s ease;
+
+  transform: translate(0, 0) scale(.15) rotate(0deg);
+
 }
 
 .system-node .node-index {
@@ -419,23 +422,32 @@ nav {
 /* POSITIONS */
 
 .node-web {
+  --node-rotation: -7deg;
+  --node-x: 380px;
+  --node-y: 220px;
+
   top: 18%;
   left: 7%;
-  transform: rotate(-7deg);
   animation-delay: .15s;
 }
 
 .node-auto {
+  --node-rotation: 5deg;
+  --node-x: -360px;
+  --node-y: 230px;
+
   top: 10%;
   right: 5%;
-  transform: rotate(5deg);
   animation-delay: .3s;
 }
 
 .node-integration {
+  --node-rotation: -4deg;
+  --node-x: -300px;
+  --node-y: -240px;
+
   bottom: 14%;
   right: 9%;
-  transform: rotate(-4deg);
   animation-delay: .45s;
 }
 
@@ -594,14 +606,30 @@ nav {
 }
 
 @keyframes systemNodeIn {
-  from {
+  0% {
     opacity: 0;
-    filter: blur(5px);
+    filter: blur(8px);
+    transform:
+      translate(
+        var(--node-x),
+        var(--node-y)
+      )
+      scale(.15)
+      rotate(-35deg);
   }
 
-  to {
+  45% {
+    opacity: .8;
+    filter: blur(2px);
+  }
+
+  100% {
     opacity: 1;
     filter: blur(0);
+    transform:
+      translate(0, 0)
+      scale(1)
+      rotate(var(--node-rotation));
   }
 }
 
