@@ -252,40 +252,60 @@ nav {
 .system-node {
   position: absolute;
   z-index: 6;
+
   display: flex;
-  flex-direction: column;
-  gap: .35rem;
-  padding: .9rem 1.1rem;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: rgba(255,255,255,.035);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  min-width: 145px;
-  text-align: left;
+  align-items: center;
+  gap: .65rem;
+
+  padding: .65rem .9rem;
+
+  background: rgba(255,255,255,.025);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 999px;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  white-space: nowrap;
+
   opacity: 0;
-  animation: systemNodeIn .8s ease forwards;
+  animation: systemNodeIn .9s cubic-bezier(.22,1,.36,1) forwards;
+
+  transition:
+    border-color .3s ease,
+    background .3s ease,
+    transform .3s ease;
 }
 
 .system-node .node-index {
-  font-size: .65rem;
-  letter-spacing: .12em;
-  opacity: .45;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 24px;
+  height: 24px;
+
+  border-radius: 50%;
+
+  font-size: .55rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+
+  color: var(--blue3);
+  background: rgba(59,130,246,.08);
 }
 
 .system-node strong {
   font-family: var(--head);
-  font-size: .9rem;
+  font-size: .82rem;
   font-weight: 600;
+  color: var(--text);
 }
 
 .system-node:hover {
-  border-color: var(--blue2);
-  background: rgba(16, 21, 36, .92);
-
-  box-shadow:
-    0 25px 60px rgba(0, 0, 0, .25),
-    0 0 30px var(--glow);
+  border-color: var(--border2);
+  background: rgba(255,255,255,.05);
+  transform: translateY(-3px);
 }
 
 .system-node .node-index {
@@ -478,12 +498,14 @@ nav {
 @keyframes systemNodeIn {
   from {
     opacity: 0;
-    scale: .75;
+    transform: translateY(18px) scale(.94);
+    filter: blur(4px);
   }
 
   to {
     opacity: 1;
-    scale: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
   }
 }
 
