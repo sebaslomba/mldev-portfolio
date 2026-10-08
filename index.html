@@ -303,7 +303,9 @@ animation: genieHeader .75s cubic-bezier(.22, .9, .2, 1) both;}
   font-family: var(--body);
   font-size: 1rem;
   line-height: 1.7;
-  opacity: .65;
+  opacity: 0;
+
+  animation: systemFadeUp .7s .45s cubic-bezier(.22, 1, .36, 1) forwards;
 }
 
 
@@ -315,6 +317,9 @@ animation: genieHeader .75s cubic-bezier(.22, .9, .2, 1) both;}
   align-items: center;
   gap: .8rem;
   margin-top: 2rem;
+  opacity: 0;
+
+  animation: systemFadeUp .7s .6s cubic-bezier(.22, 1, .36, 1) forwards;
 }
 
 .system-primary,
