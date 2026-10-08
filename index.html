@@ -81,73 +81,27 @@ nav {
   transform-origin: center bottom;
   overflow: hidden;
 
-  animation: genieHeader 1.35s cubic-bezier(.22, .8, .18, 1) both;
+animation: genieHeader .8s cubic-bezier(.16, 1, .3, 1) both;
 }
 
 @keyframes genieHeader {
-  0% {
+  from {
     opacity: 0;
-
     transform:
-      translate(0, 42vh)
+      translate(-2vw, 42vh)
       scaleX(.08)
       scaleY(.08)
-      skewX(-18deg);
-
+      skewX(-10deg);
     border-radius: 50%;
   }
 
-  18% {
+  to {
     opacity: 1;
-
-    transform:
-      translate(-10vw, 30vh)
-      scaleX(.16)
-      scaleY(.16)
-      skewX(-12deg);
-
-    border-radius: 45%;
-  }
-
-  42% {
-    transform:
-      translate(-4vw, 17vh)
-      scaleX(.22)
-      scaleY(.42)
-      skewX(-7deg);
-
-    border-radius: 38%;
-  }
-
-  68% {
-    transform:
-      translate(0, 4vh)
-      scaleX(.48)
-      scaleY(.72)
-      skewX(-3deg);
-
-    border-radius: 28%;
-  }
-
-  84% {
-    transform:
-      translate(0, 0)
-      scaleX(.78)
-      scaleY(.94)
-      skewX(0);
-
-    border-radius: 22px;
-  }
-
-  100% {
-    opacity: 1;
-
     transform:
       translate(0, 0)
       scaleX(1)
       scaleY(1)
       skewX(0);
-
     border-radius: 18px;
   }
 }
@@ -443,7 +397,13 @@ nav > * {
   transform-origin: center;
   opacity: 0;
 
-  animation: systemNodeIn .9s cubic-bezier(.22,1,.36,1) forwards;
+animation:
+  systemNodeIn
+  .75s
+  cubic-bezier(.16, 1, .3, 1)
+  forwards;
+
+  will-change: transform, opacity;
 
   transition:
     border-color .35s ease,
@@ -513,29 +473,35 @@ nav > * {
 
 .node-web {
   --node-rotation: -7deg;
-  --node-x: 380px;
-  --node-y: 220px;
+  --node-start-x: 380px;
+  --node-start-y: 220px;
+
   top: 18%;
   left: 7%;
-  animation-delay: .25s;
+
+  animation-delay: .08s;
 }
 
 .node-auto {
   --node-rotation: 5deg;
-  --node-x: -360px;
-  --node-y: 230px;
+  --node-start-x: -360px;
+  --node-start-y: 230px;
+
   top: 10%;
   right: 5%;
-  animation-delay: .42s;
+
+  animation-delay: .16s;
 }
 
 .node-integration {
   --node-rotation: -4deg;
-  --node-x: -300px;
-  --node-y: -240px;
+  --node-start-x: -300px;
+  --node-start-y: -240px;
+
   bottom: 14%;
   right: 9%;
-  animation-delay: .58s;
+
+  animation-delay: .24s;
 }
 
 
@@ -693,38 +659,20 @@ nav > * {
 }
 
 @keyframes systemNodeIn {
-  0% {
+  from {
     opacity: 0;
-    filter: blur(10px);
-
-    transform:
-      translate(var(--node-x), var(--node-y))
-      scale(.12)
-      rotate(-45deg);
-  }
-
-  30% {
-    opacity: .45;
-  }
-
-  65% {
-    opacity: .9;
-    filter: blur(2px);
 
     transform:
       translate(
-        calc(var(--node-x) * .18),
-        calc(var(--node-y) * .18)
+        var(--node-start-x),
+        var(--node-start-y)
       )
-      scale(1.08)
-      rotate(
-        calc(var(--node-rotation) * 1.5)
-      );
+      scale(.45)
+      rotate(calc(var(--node-rotation) - 12deg));
   }
 
-  100% {
+  to {
     opacity: 1;
-    filter: blur(0);
 
     transform:
       translate(0, 0)
