@@ -916,8 +916,8 @@ animation:
 .services-section {
   position: relative;
   padding: 9rem 0 10rem;
-  background: #fff;
-  color: #111;
+  background: var(--bg);
+  color: var(--text);
 }
 
 .services-header {
@@ -979,10 +979,10 @@ animation:
 
   overflow: hidden;
 
-  border: 1px solid #e7e7e7;
+  border: 1px solid var(--border);
   border-radius: 24px;
 
-  background: #fff;
+  background: var(--bg);
 
   box-shadow:
     0 12px 35px rgba(0,0,0,.045);
@@ -1039,7 +1039,7 @@ animation:
   line-height: .96;
   letter-spacing: -.05em;
 
-  color: #111;
+  color: var(--text);
 }
 
 .service-copy h3 span {
@@ -1054,7 +1054,7 @@ animation:
   font-size: .9rem;
   line-height: 1.7;
 
-  color: #666;
+  color: var(--muted);
 }
 
 
@@ -1652,38 +1652,6 @@ footer {
     border-left: 0;
     border-top: 1px solid var(--border);
   }
-}
-
-
-/* ─── COMMERCIAL DEMO ─── */
-
-.demo-section {
-  background: var(--bg);
-  overflow: hidden;
-}
-
-.demo-header {
-  display: grid;
-  grid-template-columns: 1fr .8fr;
-  gap: 4rem;
-  align-items: end;
-  margin-bottom: 3rem;
-}
-
-.demo-header h2 {
-  font-family: var(--head);
-  font-size: clamp(2.5rem, 5vw, 4.2rem);
-  line-height: .95;
-  letter-spacing: -.04em;
-  margin: 0;
-}
-
-.demo-header h2 span {
-  color: var(--blue3);
-}
-
-.demo-header .sdesc {
-  margin: 0;
 }
 
 /* ─── COMMERCIAL DEMO ─── */
