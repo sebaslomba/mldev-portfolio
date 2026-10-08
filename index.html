@@ -182,49 +182,39 @@ nav {
 
 .hero-system-core h1 {
   margin: 0;
-
   font-family: var(--head);
-  font-weight: 900;
-
-  font-size: clamp(3.5rem, 7vw, 6.8rem);
-  line-height: .86;
+  font-weight: 700;
+  font-size: clamp(3.2rem, 6.8vw, 6.2rem);
+  line-height: .9;
   letter-spacing: -.065em;
-
   color: var(--text);
-
   animation: systemFadeUp .8s .25s both;
 }
 
 .hero-system-core h1 span {
   display: block;
-
+  margin-top: .12em;
   color: var(--blue2);
 }
 
 .hero-system-core p {
   max-width: 480px;
-  margin: 2rem auto 0;
-
+  margin: 1.8rem auto 0;
+  font-family: var(--body);
   font-size: 1rem;
   line-height: 1.7;
-
-  color: var(--muted);
-
-  animation: systemFadeUp .8s .35s both;
+  opacity: .65;
 }
 
 
 /* ACTIONS */
 
 .hero-system-actions {
-  margin-top: 2rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
   gap: .8rem;
-
-  animation: systemFadeUp .8s .45s both;
+  margin-top: 2rem;
 }
 
 .system-primary,
@@ -232,73 +222,61 @@ nav {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   min-height: 46px;
-  padding: .75rem 1.2rem;
-
+  padding: 0 1.25rem;
   border-radius: 10px;
-
-  text-decoration: none;
-  font-size: .82rem;
+  font-size: .85rem;
   font-weight: 600;
-
-  transition:
-    transform .35s cubic-bezier(.16,1,.3,1),
-    background .35s ease,
-    border-color .35s ease,
-    color .35s ease;
+  text-decoration: none;
+  transition: transform .25s ease, background .25s ease, border-color .25s ease;
 }
 
 .system-primary {
   background: var(--blue);
-  color: #fff;
-  border: 1px solid transparent;
-}
-
-.system-primary:hover {
-  transform: translateY(-4px);
-  background: var(--blue2);
+  color: white;
 }
 
 .system-secondary {
-  color: var(--text);
   border: 1px solid var(--border);
+  color: var(--text);
   background: rgba(255,255,255,.025);
 }
 
+.system-primary:hover,
 .system-secondary:hover {
-  transform: translateY(-4px);
-  border-color: var(--border2);
-  background: var(--glow);
+  transform: translateY(-2px);
 }
-
 
 /* ─── SYSTEM NODES ─── */
 
 .system-node {
   position: absolute;
   z-index: 6;
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  padding: .9rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(255,255,255,.035);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  min-width: 145px;
+  text-align: left;
+  opacity: 0;
+  animation: systemNodeIn .8s ease forwards;
+}
 
-  min-width: 165px;
-  padding: 1rem 1.15rem;
+.system-node .node-index {
+  font-size: .65rem;
+  letter-spacing: .12em;
+  opacity: .45;
+}
 
-  background: rgba(11, 15, 28, .72);
-  border: 1px solid var(--border2);
-  border-radius: var(--r);
-
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-
-  box-shadow:
-    0 20px 50px rgba(0, 0, 0, .18);
-
-  cursor: default;
-
-  transition:
-    transform .5s cubic-bezier(.16, 1, .3, 1),
-    border-color .35s ease,
-    background .35s ease,
-    box-shadow .35s ease;
+.system-node strong {
+  font-family: var(--head);
+  font-size: .9rem;
+  font-weight: 600;
 }
 
 .system-node:hover {
@@ -322,50 +300,25 @@ nav {
   color: var(--blue3);
 }
 
-.system-node strong {
-  display: block;
-
-  font-family: var(--head);
-  font-size: .95rem;
-  font-weight: 700;
-
-  color: var(--text);
-}
-
 
 /* POSITIONS */
 
 .node-web {
-  top: 16%;
-  left: 4%;
-
-  transform: rotate(-5deg);
-
-  animation:
-    systemNodeWeb 7s ease-in-out infinite,
-    systemNodeIn .9s .35s both;
+  top: 20%;
+  left: 8%;
+  animation-delay: .2s;
 }
 
 .node-auto {
-  top: 28%;
-  right: 2%;
-
-  transform: rotate(4deg);
-
-  animation:
-    systemNodeAuto 8s ease-in-out infinite,
-    systemNodeIn .9s .5s both;
+  top: 12%;
+  right: 7%;
+  animation-delay: .35s;
 }
 
 .node-integration {
-  left: 11%;
-  bottom: 12%;
-
-  transform: rotate(3deg);
-
-  animation:
-    systemNodeIntegration 7.5s ease-in-out infinite,
-    systemNodeIn .9s .65s both;
+  bottom: 16%;
+  right: 12%;
+  animation-delay: .5s;
 }
 
 
@@ -436,50 +389,37 @@ nav {
 
 .system-line {
   position: absolute;
-  z-index: 1;
-
   height: 1px;
-
   transform-origin: left center;
-
   background: linear-gradient(
     90deg,
     transparent,
     var(--border2),
     transparent
   );
-
-  opacity: .7;
+  opacity: .55;
+  z-index: 1;
 }
 
 .line-one {
-  width: 31%;
-  left: 17%;
-  top: 38%;
-
-  transform: rotate(12deg);
-
-  animation: systemLinePulse 4s ease-in-out infinite;
+  width: 280px;
+  top: 34%;
+  left: 20%;
+  transform: rotate(15deg);
 }
 
 .line-two {
-  width: 30%;
-  right: 17%;
-  top: 43%;
-
-  transform: rotate(-13deg);
-
-  animation: systemLinePulse 4s .8s ease-in-out infinite;
+  width: 300px;
+  top: 34%;
+  right: 20%;
+  transform: rotate(-15deg);
 }
 
 .line-three {
-  width: 25%;
-  left: 25%;
-  bottom: 27%;
-
-  transform: rotate(-18deg);
-
-  animation: systemLinePulse 4s 1.4s ease-in-out infinite;
+  width: 260px;
+  bottom: 28%;
+  right: 25%;
+  transform: rotate(18deg);
 }
 
 @keyframes systemLinePulse {
