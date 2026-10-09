@@ -500,6 +500,7 @@ animation: systemNodeIn .75s cubic-bezier(.16, 1, .3, 1) both;
   transform:
     translate(var(--scroll-x), var(--scroll-y))
     rotate(calc(var(--node-rotation) + var(--scroll-rotate)));
+
   will-change: transform, opacity;
 }
 
@@ -4263,56 +4264,79 @@ function showAutomationCase(name, button) {
   }
 }
 
-// Hero: separación de nodos ligada al scroll
-(() => {
-  const hero = document.querySelector('.hero-system-section');
-  const stage = hero?.querySelector('.hero-system-stage');
-  const nodes = hero?.querySelectorAll('.system-node');
+  // Hero: movimiento de nodos ligado al scroll
+  (() => {
+    const hero = document.querySelector('.hero-system-section');
+    const nodes = hero?.querySelectorAll('.system-node');
 
-  if (!hero || !stage || !nodes?.length) return;
+    if (!hero || !nodes?.length) {
+      console.error('Hero: no se encontraron los nodos.');
+      return;
+    }
 
-  let ticking = false;
+    const exits = {
+      'node-web': { x: -0.65, y: -0.12, rotation: -18 },
+      'node-auto': { x: 0.65, y: -0.08, rotation: 18 },
+      'node-integration': { x: 0.65, y: 0.15, rotation: 22 }
+    };
 
-  const clamp = (value, min, max) =>
-    Math.min(Math.max(value, min), max);
+    let ticking = false;
 
-  function updateHeroNodes() {
-    const rect = hero.getBoundingClientRect();
-    const distance = Math.max(hero.offsetHeight * 0.65, 1);
+    function updateHeroNodes() {
+      const rect = hero.getBoundingClientRect();
+      const distance = Math.max(hero.offsetHeight * 0.65, 1);
+      const progress = Math.max(0, Math.min(1, -rect.top / distance));
+      const eased = progress * progress * (3 - 2 * progress);
 
-    const progress = clamp(-rect.top / distance, 0, 1);
-    const eased = progress * progress * (3 - 2 * progress);
+      nodes.forEach(node => {
+        const exit = exits[
+          [...node.classList].find(className => exits[className])
+        ];
+
+        if (!exit) return;
+
+        node.style.setProperty(
+          '--scroll-x',
+          `${window.innerWidth * exit.x * eased}px`
+        );
+
+        node.style.setProperty(
+          '--scroll-y',
+          `${window.innerHeight * exit.y * eased}px`
+        );
+
+        node.style.setProperty(
+          '--scroll-rotate',
+          `${exit.rotation * eased}deg`
+        );
+
+        node.style.opacity = String(1 - eased);
+      });
+
+      ticking = false;
+    }
+
+    function requestUpdate() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(updateHeroNodes);
+    }
 
     nodes.forEach(node => {
-      const style = getComputedStyle(node);
+      node.addEventListener('animationend', event => {
+        if (event.target !== node ||
+            event.animationName !== 'systemNodeIn') return;
 
-      const x = parseFloat(style.getPropertyValue('--exit-x')) || 0;
-      const y = parseFloat(style.getPropertyValue('--exit-y')) || 0;
-      const rotation =
-        parseFloat(style.getPropertyValue('--exit-rotate')) || 0;
-
-      node.style.setProperty('--scroll-x', `${x * eased}px`);
-      node.style.setProperty('--scroll-y', `${y * eased}px`);
-      node.style.setProperty('--scroll-rotate', `${rotation * eased}deg`);
-      node.style.opacity = String(1 - eased);
+        node.style.animation = 'none';
+        requestUpdate();
+      });
     });
 
-    ticking = false;
-  }
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate);
 
-  function requestUpdate() {
-    if (ticking) return;
-
-    ticking = true;
-    requestAnimationFrame(updateHeroNodes);
-  }
-
-  window.addEventListener('scroll', requestUpdate, { passive: true });
-  window.addEventListener('resize', requestUpdate);
-
-  updateHeroNodes();
-})();
-
+    updateHeroNodes();
+  })();
 </script>
 
 <script type="module" src="./src/main.jsx"></script>
