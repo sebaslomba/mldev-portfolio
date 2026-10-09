@@ -4260,6 +4260,58 @@ function showAutomationCase(name, button) {
 
     updateHeroNodes();
   })();
+
+  // SERVICES: expansión y selección
+(() => {
+  const layout = document.querySelector(".services-layout");
+  if (!layout) return;
+
+  const cards = [...layout.querySelectorAll(".service-card")];
+
+  function activateCard(card) {
+    cards.forEach((item) => {
+      const active = item === card;
+      item.classList.toggle("is-active", active);
+      item.setAttribute("aria-expanded", String(active));
+    });
+  }
+
+  cards.forEach((card) => {
+    card.addEventListener("click", (event) => {
+      if (event.target.closest("[data-open-demo]")) return;
+      activateCard(card);
+    });
+
+    card.addEventListener("keydown", (event) => {
+      if (event.target !== card) return;
+
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        activateCard(card);
+      }
+    });
+  });
+
+  const mobile = window.matchMedia("(max-width: 760px)");
+
+  function handlePointer(event) {
+    if (mobile.matches || event.pointerType === "touch") return;
+
+    const card = event.target.closest(".service-card");
+    if (card && layout.contains(card)) activateCard(card);
+  }
+
+  layout.addEventListener("pointerover", handlePointer);
+
+  cards.forEach((card) => {
+    card.addEventListener("focus", () => {
+      if (!mobile.matches) activateCard(card);
+    });
+  });
+
+  activateCard(cards[0]);
+})();
+
 </script>
 
 <script type="module" src="./src/main.jsx"></script>
