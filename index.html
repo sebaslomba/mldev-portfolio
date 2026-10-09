@@ -495,6 +495,36 @@ animation:
   animation-delay: .24s;
 }
 
+/* Salida dinámica de los nodos según el scroll */
+.hero-system-stage .system-node {
+  --scroll-x: 0px;
+  --scroll-y: 0px;
+  --scroll-rotate: 0deg;
+
+  transform:
+    translate(var(--scroll-x), var(--scroll-y))
+    rotate(calc(var(--node-rotation) + var(--scroll-rotate)));
+  will-change: transform, opacity;
+}
+
+.hero-system-stage .node-web {
+  --exit-x: -65vw;
+  --exit-y: -12vh;
+  --exit-rotate: -18deg;
+}
+
+.hero-system-stage .node-auto {
+  --exit-x: 65vw;
+  --exit-y: -8vh;
+  --exit-rotate: 18deg;
+}
+
+.hero-system-stage .node-integration {
+  --exit-x: 65vw;
+  --exit-y: 15vh;
+  --exit-rotate: 22deg;
+}
+
 
 /* MOVEMENT */
 
@@ -4241,6 +4271,57 @@ function showAutomationCase(name, button) {
     panel.classList.add('active');
   }
 }
+
+// Hero: separación de nodos ligada al scroll
+(() => {
+  const hero = document.querySelector('.hero-system-section');
+  const stage = hero?.querySelector('.hero-system-stage');
+  const nodes = hero?.querySelectorAll('.system-node');
+
+  if (!hero || !stage || !nodes?.length) return;
+
+  let ticking = false;
+
+  const clamp = (value, min, max) =>
+    Math.min(Math.max(value, min), max);
+
+  function updateHeroNodes() {
+    const rect = hero.getBoundingClientRect();
+    const distance = Math.max(hero.offsetHeight * 0.65, 1);
+
+    const progress = clamp(-rect.top / distance, 0, 1);
+    const eased = progress * progress * (3 - 2 * progress);
+
+    nodes.forEach(node => {
+      const style = getComputedStyle(node);
+
+      const x = parseFloat(style.getPropertyValue('--exit-x')) || 0;
+      const y = parseFloat(style.getPropertyValue('--exit-y')) || 0;
+      const rotation =
+        parseFloat(style.getPropertyValue('--exit-rotate')) || 0;
+
+      node.style.setProperty('--scroll-x', `${x * eased}px`);
+      node.style.setProperty('--scroll-y', `${y * eased}px`);
+      node.style.setProperty('--scroll-rotate', `${rotation * eased}deg`);
+      node.style.opacity = String(1 - eased);
+    });
+
+    ticking = false;
+  }
+
+  function requestUpdate() {
+    if (ticking) return;
+
+    ticking = true;
+    requestAnimationFrame(updateHeroNodes);
+  }
+
+  window.addEventListener('scroll', requestUpdate, { passive: true });
+  window.addEventListener('resize', requestUpdate);
+
+  updateHeroNodes();
+})();
+
 </script>
 
 <script type="module" src="./src/main.jsx"></script>
