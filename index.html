@@ -1374,6 +1374,90 @@ animation: systemNodeIn .75s cubic-bezier(.16, 1, .3, 1) both;
     }
   }
 
+/* Servicios: estado cerrado y expansión */
+.services-layout {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  min-height: 480px;
+}
+
+.services-layout .service-card {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 480px;
+  transition: flex 450ms cubic-bezier(.22, 1, .36, 1),
+              background 300ms ease,
+              border-color 300ms ease;
+}
+
+.services-layout .service-card.is-active {
+  flex: 4 1 0;
+}
+
+.services-layout .service-copy {
+  margin-top: 2rem;
+}
+
+.services-layout .service-card:not(.is-active) .service-copy p,
+.services-layout .service-card:not(.is-active) .service-detail {
+  display: none;
+}
+
+.services-layout .service-card:not(.is-active) .service-copy h3 {
+  font-size: clamp(1.1rem, 1.8vw, 1.6rem);
+  overflow-wrap: anywhere;
+}
+
+.services-layout .service-detail {
+  margin-top: 2rem;
+}
+
+.service-detail-label {
+  font-size: .65rem;
+  letter-spacing: .12em;
+  font-weight: 700;
+  color: var(--blue2);
+}
+
+.service-explore {
+  margin-top: 1rem;
+  padding: .8rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: white;
+  color: var(--text);
+  cursor: pointer;
+}
+
+@media (max-width: 760px) {
+  .services-layout {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .services-layout .service-card,
+  .services-layout .service-card.is-active {
+    flex: none;
+    min-height: 0;
+    padding: 1.5rem;
+  }
+
+  .services-layout .service-card:not(.is-active) .service-copy p,
+  .services-layout .service-card:not(.is-active) .service-detail {
+    display: none;
+  }
+
+  .services-layout .service-card.is-active .service-copy p,
+  .services-layout .service-card.is-active .service-detail {
+    display: block;
+  }
+
+  .services-layout .service-card:not(.is-active) .service-copy {
+    margin-top: 1rem;
+  }
+}
+
 
 /* ─── SECTION BASE ─── */
 section { position: relative; }
@@ -4261,56 +4345,69 @@ function showAutomationCase(name, button) {
     updateHeroNodes();
   })();
 
-  // SERVICES: expansión y selección
+// SERVICES: bloques cerrados + expansión por hover
 (() => {
   const layout = document.querySelector(".services-layout");
   if (!layout) return;
 
   const cards = [...layout.querySelectorAll(".service-card")];
+  const mobile = window.matchMedia("(max-width: 760px)");
 
-  function activateCard(card) {
-    cards.forEach((item) => {
-      const active = item === card;
-      item.classList.toggle("is-active", active);
-      item.setAttribute("aria-expanded", String(active));
+  function activateCard(selected) {
+    cards.forEach(card => {
+      const active = card === selected;
+      card.classList.toggle("is-active", active);
+      card.setAttribute("aria-expanded", String(active));
     });
   }
 
-  cards.forEach((card) => {
-    card.addEventListener("click", (event) => {
-      if (event.target.closest("[data-open-demo]")) return;
+  function closeAll() {
+    cards.forEach(card => {
+      card.classList.remove("is-active");
+      card.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  cards.forEach(card => {
+    card.setAttribute("aria-expanded", "false");
+
+    card.addEventListener("pointerenter", event => {
+      if (mobile.matches || event.pointerType === "touch") return;
       activateCard(card);
     });
 
-    card.addEventListener("keydown", (event) => {
+    card.addEventListener("click", event => {
+      if (event.target.closest("[data-open-demo]")) return;
+      if (mobile.matches) {
+        activateCard(card.classList.contains("is-active") ? null : card);
+      }
+    });
+
+    card.addEventListener("keydown", event => {
       if (event.target !== card) return;
 
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
-        activateCard(card);
+        activateCard(card.classList.contains("is-active") ? null : card);
       }
+
+      if (event.key === "Escape") closeAll();
     });
   });
 
-  const mobile = window.matchMedia("(max-width: 760px)");
+  layout.addEventListener("pointerleave", event => {
+    if (!mobile.matches && event.pointerType !== "touch") closeAll();
+  });
 
-  function handlePointer(event) {
-    if (mobile.matches || event.pointerType === "touch") return;
-
-    const card = event.target.closest(".service-card");
-    if (card && layout.contains(card)) activateCard(card);
-  }
-
-  layout.addEventListener("pointerover", handlePointer);
-
-  cards.forEach((card) => {
+  cards.forEach(card => {
     card.addEventListener("focus", () => {
       if (!mobile.matches) activateCard(card);
     });
   });
 
-  activateCard(cards[0]);
+  closeAll();
 })();
+
 
 </script>
 
