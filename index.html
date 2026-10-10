@@ -1098,27 +1098,6 @@ animation: systemNodeIn .75s cubic-bezier(.16, 1, .3, 1) both;
     color: white;
   }
 
-  /* Transición Hero → Servicios */
-
-  .services-layout .service-card > * {
-    opacity: var(--morph-progress, 1);
-  }
-
-  .services-layout .service-card {
-    overflow: hidden;
-  }
-
-  .hero-system-stage .system-node {
-    pointer-events: auto;
-    backface-visibility: hidden;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .hero-system-stage .system-node {
-      animation: none;
-    }
-  }
   /* ─── WEB VISUAL ─── */
 
   .web-visual {
@@ -1317,6 +1296,29 @@ animation: systemNodeIn .75s cubic-bezier(.16, 1, .3, 1) both;
     background: linear-gradient(90deg, #e5e5e5, #bdbdbd, #e5e5e5);
   }
 
+
+  /* Transición Hero → Servicios */
+
+  .services-layout .service-card > * {
+    opacity: var(--morph-progress, 1);
+  }
+
+  .services-layout .service-card {
+    overflow: hidden;
+  }
+
+  .hero-system-stage .system-node {
+    pointer-events: auto;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-system-stage .system-node {
+      animation: none;
+    }
+  }
+  
   /* ─── RESPONSIVE ─── */
 
   @media (max-width: 760px) {
