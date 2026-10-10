@@ -4198,121 +4198,51 @@ function showAutomationCase(name, button) {
   }
 }
 
- // HERO → SERVICIOS: transición continua ligada al scroll
+// Hero: movimiento de nodos ligado al scroll
 (() => {
-  const hero = document.querySelector(".hero-system-section");
-  const stage = hero?.querySelector(".hero-system-stage");
-  const services = document.querySelector("#servicios");
-  const layout = services?.querySelector(".services-layout");
+  const hero = document.querySelector('.hero-system-section');
+  const nodes = hero?.querySelectorAll('.system-node');
 
-  if (!hero || !stage || !services || !layout) {
-    console.error("Hero → Servicios: faltan elementos.");
+  if (!hero || !nodes?.length) {
+    console.error('Hero: no se encontraron los nodos.');
     return;
   }
 
-  const pairs = [
-    [".node-web", ".service-web"],
-    [".node-auto", ".service-automation"],
-    [".node-integration", ".service-integrations"]
-  ].map(([nodeSelector, cardSelector]) => ({
-    node: stage.querySelector(nodeSelector),
-    card: layout.querySelector(cardSelector),
-    start: null,
-    nodeStyle: null,
-    cardStyle: null
-  }));
-
-  if (pairs.some(pair => !pair.node || !pair.card)) {
-    console.error("Hero → Servicios: no se encontraron los tres pares.");
-    return;
-  }
-
-  const clamp = value => Math.max(0, Math.min(1, value));
-  const lerp = (a, b, t) => a + (b - a) * t;
+  const exits = {
+    'node-web': { x: -0.65, y: -0.12, rotation: -18 },
+    'node-auto': { x: 0.65, y: -0.08, rotation: 18 },
+    'node-integration': { x: 0.65, y: 0.15, rotation: 22 }
+  };
 
   let ticking = false;
 
-  function restoreStyle(element, originalStyle) {
-    if (originalStyle === null) {
-      element.removeAttribute("style");
-    } else {
-      element.setAttribute("style", originalStyle);
-    }
-  }
-
-  function resetPair(pair) {
-    if (pair.nodeStyle !== null) {
-      restoreStyle(pair.node, pair.nodeStyle);
-      pair.nodeStyle = null;
-    }
-
-    if (pair.cardStyle !== null) {
-      restoreStyle(pair.card, pair.cardStyle);
-      pair.cardStyle = null;
-    }
-
-    pair.start = null;
-  }
-
-  function update() {
-    const vh = window.innerHeight;
-    const layoutTop = layout.getBoundingClientRect().top;
-    const startPoint = vh * 0.92;
-    const endPoint = vh * 0.24;
-    const progress = clamp(
-      (startPoint - layoutTop) / (startPoint - endPoint)
-    );
-
+  function updateHeroNodes() {
+    const rect = hero.getBoundingClientRect();
+    const distance = Math.max(hero.offsetHeight * 0.65, 1);
+    const progress = Math.max(0, Math.min(1, -rect.top / distance));
     const eased = progress * progress * (3 - 2 * progress);
 
-    if (progress === 0) {
-      pairs.forEach(resetPair);
-      services.classList.remove("services-morph-ready");
-      ticking = false;
-      return;
-    }
+    nodes.forEach(node => {
+      const exit = exits[
+        [...node.classList].find(className => exits[className])
+      ];
 
-    services.classList.add("services-morph-ready");
+      if (!exit) return;
 
-    pairs.forEach(pair => {
-      const { node, card } = pair;
+      node.style.setProperty(
+        '--scroll-x',
+        `${window.innerWidth * exit.x * eased}px`
+      );
+      node.style.setProperty(
+        '--scroll-y',
+        `${window.innerHeight * exit.y * eased}px`
+      );
+      node.style.setProperty(
+        '--scroll-rotate',
+        `${exit.rotation * eased}deg`
+      );
 
-      if (!pair.start) {
-        pair.start = node.getBoundingClientRect();
-        pair.nodeStyle = node.getAttribute("style");
-        pair.cardStyle = card.getAttribute("style");
-      }
-
-      const start = pair.start;
-      const end = card.getBoundingClientRect();
-
-      const top = lerp(start.top, end.top, eased);
-      const left = lerp(start.left, end.left, eased);
-      const width = lerp(start.width, end.width, eased);
-      const height = lerp(start.height, end.height, eased);
-
-      Object.assign(node.style, {
-        position: "fixed",
-        top: `${top}px`,
-        left: `${left}px`,
-        right: "auto",
-        bottom: "auto",
-        width: `${width}px`,
-        height: `${height}px`,
-        margin: "0",
-        boxSizing: "border-box",
-        zIndex: "20",
-        transform: "none",
-        animation: "none",
-        transition: "none",
-        borderRadius: `${lerp(16, 24, eased)}px`,
-        opacity: String(1 - eased),
-        pointerEvents: "none"
-      });
-
-      card.style.opacity = String(eased);
-      card.style.transform = `translateY(${lerp(12, 0, eased)}px)`;
-      card.style.pointerEvents = eased >= 1 ? "" : "none";
+      node.style.opacity = String(1 - eased);
     });
 
     ticking = false;
@@ -4320,15 +4250,26 @@ function showAutomationCase(name, button) {
 
   function requestUpdate() {
     if (ticking) return;
-
     ticking = true;
-    requestAnimationFrame(update);
+    requestAnimationFrame(updateHeroNodes);
   }
 
-  window.addEventListener("scroll", requestUpdate, { passive: true });
-  window.addEventListener("resize", requestUpdate);
+  nodes.forEach(node => {
+    node.addEventListener('animationend', event => {
+      if (
+        event.target !== node ||
+        event.animationName !== 'systemNodeIn'
+      ) return;
 
-  update();
+      node.style.animation = 'none';
+      requestUpdate();
+    });
+  });
+
+  window.addEventListener('scroll', requestUpdate, { passive: true });
+  window.addEventListener('resize', requestUpdate);
+
+  updateHeroNodes();
 })();
 
 // SERVICES: bloques cerrados + expansión por hover
