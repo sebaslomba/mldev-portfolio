@@ -8,7 +8,7 @@ export default function App() {
       <section className="workbench">
         <span className="workbench__mark">ML / WORKBENCH</span>
         <span className="workbench__progress">
-            CAMERA {<progress.toFixed(2)}
+            CAMERA {progress.toFixed(2)}
         </span>
 
         <div className="workbench__stage">
