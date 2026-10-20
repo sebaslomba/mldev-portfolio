@@ -22,12 +22,13 @@ textarea {
 }
 
 .experience {
-  min-height: 100vh;
+  min-height: 400vh;
 }
 
 .workbench {
-  position: relative;
-  min-height: 100vh;
+  position: sticky;
+  top: 0;
+  height: 100vh;
   overflow: hidden;
   background:
     radial-gradient(
