@@ -1,8 +1,15 @@
+import { useScrollProgress } from "./hooks/useScrollProgress";
+
 export default function App() {
+    const progress = useScrollProgress();
+
   return (
     <main className="experience">
       <section className="workbench">
         <span className="workbench__mark">ML / WORKBENCH</span>
+        <span className="workbench__progress">
+            CAMERA {<progress.toFixed(2)}
+        </span>
 
         <div className="workbench__stage">
           <article className="brief">

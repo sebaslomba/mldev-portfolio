@@ -58,6 +58,17 @@ textarea {
   transform: translateX(-50%);
 }
 
+.workbench__progress {
+    position: absolute;
+    top: 28px;
+    right: 32px;
+    z-index: 20;
+
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    font-variant-numeric: tabular-nums;
+}
+
 .workbench__stage {
   position: absolute;
   inset: 0;
