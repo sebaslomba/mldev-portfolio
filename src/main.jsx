@@ -1,9 +1,10 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import Demo from "./components/Demo";
+import App from "./App.jsx";
+import "./styles/global.css";
 
-const rootElement = document.getElementById("demo-react");
-
-if (rootElement) {
-  createRoot(rootElement).render(<Demo />);
-}
+createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
