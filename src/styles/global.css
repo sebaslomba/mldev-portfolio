@@ -73,15 +73,19 @@ textarea {
   position: absolute;
   inset: 0;
 
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.workbench__surface {
+  position: absolute;
+  inset: 0;
+
   transform-origin: 50% 100%;
   transform-style: preserve-3d;
   will-change: transform;
 
-  /*
-   * Este será nuestro mundo.
-   * En el próximo paso el scroll modificará
-   * su perspectiva y posición.
-   */
+  z-index: 2;
 }
 
 .brief {
@@ -220,10 +224,10 @@ textarea {
 
 .laptop {
     position: absolute;
-    top: -6%;
+    top: 5%;
     left: 50%;
-    width: min(52vw, 720px);
-    z-index: 2;
+    width: min(48vw, 680px);
+    z-index: 1;
 
     transform-origin: center bottom;
     will-change: transform, opacity;
@@ -260,7 +264,7 @@ textarea {
 
     transform: 
     perspective(500px)
-    rotate(55deg);
+    rotateX(55deg);
 
     transform-origin: top;
 }
