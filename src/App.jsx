@@ -2,9 +2,9 @@ import { useScrollProgress } from "./hooks/useScrollProgress";
 
 export default function App() {
     const progress = useScrollProgress();
-    const cameraRotate = progress * 58;
-    const cameraY = progress * 32;
-    const cameraScale = 1 + progress * 0.22;
+    const cameraRotate = progress * 62;
+    const cameraY = progress * 18;
+    const cameraScale = 1 - progress * 0.18;    
 
     const cameraStyle = {
         transform : 

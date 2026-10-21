@@ -73,7 +73,7 @@ textarea {
   position: absolute;
   inset: 0;
 
-  transform-origin: 50% 80%;
+  transform-origin: 50% 100%;
   transform-style: preserve-3d;
   will-change: transform;
 
