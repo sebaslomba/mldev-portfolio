@@ -5,6 +5,15 @@ export default function App() {
     const cameraRotate = progress * 62;
     const cameraY = progress * 18;
     const cameraScale = 1 - progress * 0.18;    
+    const laptopProgress = Math.min(Math.max((progress - 0.28) / 0.42, 0), 1);
+    const laptopStyle = {
+        opacity: laptopProgress,
+        transform: `
+        translateX(-50%)
+        translateY(${(1 - laptopProgress) * 80}px)
+        scale(${0.88 + laptopProgress * 0.12})
+        `,
+    };
 
     const cameraStyle = {
         transform : 
@@ -25,6 +34,16 @@ export default function App() {
         </span>
 
         <div className="workbench__stage" style={cameraStyle}>
+
+            <div className="laptop" style={laptopStyle}>
+                <div className="laptop__screen">
+                    <span className="laptop__status">
+                        SOMETHING IS TAKING SHAPE
+                    </span>
+                </div>
+                <div className="laptop__base" />
+            </div>
+
           <article className="brief">
             <span>INCOMING / 001</span>
 
