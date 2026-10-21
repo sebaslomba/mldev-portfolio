@@ -2,6 +2,17 @@ import { useScrollProgress } from "./hooks/useScrollProgress";
 
 export default function App() {
     const progress = useScrollProgress();
+    const cameraRotate = progress * 58;
+    const cameraY = progress * 32;
+    const cameraScale = 1 + progress * 0.22;
+
+    const cameraStyle = {
+        transform : 
+        perspective(1200px)
+        rotateX(${cameraRotate}deg)
+        translate(${cameraY}%)
+        scale(${cameraScale});
+    }
 
   return (
     <main className="experience">
@@ -11,7 +22,7 @@ export default function App() {
             CAMERA {progress.toFixed(2)}
         </span>
 
-        <div className="workbench__stage">
+        <div className="workbench__stage" style={cameraStyle}>
           <article className="brief">
             <span>INCOMING / 001</span>
 

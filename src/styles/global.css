@@ -73,12 +73,15 @@ textarea {
   position: absolute;
   inset: 0;
 
+  transform-origin: 50% 80%;
+  transform-style: preserve-3d;
+  will-change: transform;
+
   /*
    * Este será nuestro mundo.
    * En el próximo paso el scroll modificará
    * su perspectiva y posición.
    */
-  transform-origin: 50% 70%;
 }
 
 .brief {
