@@ -8,11 +8,13 @@ export default function App() {
 
     const cameraStyle = {
         transform : 
+        `
         perspective(1200px)
         rotateX(${cameraRotate}deg)
         translate(${cameraY}%)
         scale(${cameraScale});
-    }
+        `,
+    };
 
   return (
     <main className="experience">
