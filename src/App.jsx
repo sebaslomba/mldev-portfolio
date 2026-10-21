@@ -11,8 +11,8 @@ export default function App() {
         `
         perspective(1200px)
         rotateX(${cameraRotate}deg)
-        translate(${cameraY}%)
-        scale(${cameraScale});
+        translateY(${cameraY}%)
+        scale(${cameraScale})
         `,
     };
 
